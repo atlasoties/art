@@ -10,3 +10,5 @@ to run the code in your machine
 You'll see this :-
 
 [![regi.png](https://i.postimg.cc/DyxQmRRW/regi.png)](https://postimg.cc/N5r2zCsY)
+
+![Github stats](https://github-readme-stats.vercel.app/api?username=Atlasoties)
