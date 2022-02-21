@@ -8,7 +8,7 @@ This project is about building a web based art gallery and social networking sys
 1. Node.js<br>
 2. Express.js<br>
 3. MongoDb<br>
-4. React.js<br>
+4. React + Redux<br>
 <h4>Here is the Registration page screenshot</h4>
 
 [![regi.png](https://i.postimg.cc/DyxQmRRW/regi.png)](https://postimg.cc/N5r2zCsY)
