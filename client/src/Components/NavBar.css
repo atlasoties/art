@@ -1,0 +1,27 @@
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+nav a:active{
+	color: white;
+	text-decoration: none;
+}
+
+nav a:hover{
+	color: white;
+	border-top: 2px #FFF solid;
+}
+
+.nav-wrapper{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	justify-content: flex-end;
+	background-color: black;
+	width: 100%;
+	height: 3rem;
+	font-size: 1.5rem;
+}
