@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './Register.css';
-
+import NavBar from '../Components/NavBar.jsx';
 
 class Register extends React.Component {
 
@@ -46,7 +46,6 @@ class Register extends React.Component {
 					</form>
 				</main>
 			</div>
-	
 
 
 		);
