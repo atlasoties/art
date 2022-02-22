@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT;
 const app = express();
 
-
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
@@ -22,10 +21,10 @@ mongoose.connection.on('error',(err)=>{
 mongoose.connection.once('open',()=>{
 	console.log("Mongodb connected");
 });
-require("./model/User");
+require(path.join(__dirname,"models","user.model"));
 
 
-app.use('/user',require('./routes/userRoute'));
+app.use('/user',require(path.join(__dirname,"routes","user.route")));
 
 
 

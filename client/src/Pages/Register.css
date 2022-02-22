@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-body {
+#back {
     font-family: Georgia,sans-serif;
     height: 100vh;
     margin: 0;
@@ -19,6 +19,7 @@ header {
 }
 button{
     float:left;
+    display: block;
 }
 
 .box {
@@ -32,17 +33,19 @@ button{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 div p{
     color:rgb(0, 118, 224);
     text-transform: capitalize;
     font-size:0.85rem;
-    margin:5px 5px 5px 5px ;
+    margin:5px;
+    cursor: pointer;
 }
 a{
     cursor:pointer;
     color:rgb(23, 145, 251);
     text-decoration: none;
-    margin:5px 5px 5px 5px ;
+    margin-bottom: 25px ;
 
 }
 .box h2 {
@@ -69,7 +72,7 @@ a{
     width: 100%;
 }
 
-.box input[type="submit"], .box button[type="submit"], a.button {
+.box input[type="submit"], .box button, a.button {
     font-family: sans-serif;
     background: #03a9f4;
     font-size: 11px;
