@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import {Link} from 'react-router-dom';
 import './Register.css';
-import NavBar from '../Components/NavBar.jsx';
 
 class Register extends React.Component {
 
 	showPasswordHandler(event) {
+		//event.preventDefault();
 		const password = document.querySelector("#pass1");
-		const type = password.getAttribute("type")==="password"?"text":"password";
-		password.setAttribute("type", type);
+		
+		if(event.target.checked){
+			password.setAttribute("type", "text");
+		}else{
+			password.setAttribute("type","password");
+		}
 
 	}
 	render() {
 		return (
-			<div id="tsparticles">
+			<section id="back">
+			<div id="tsparticles ">
 				<main className="box">
 					<h2>Create an account</h2>
 					<form>
@@ -36,17 +41,18 @@ class Register extends React.Component {
 								required />
 						</div>
 						<div>
-						<button type="submit">Continue</button>
-						<p><a  href="#">Already Have an Account?</a></p>
+						<button>Continue</button>
 						</div>
 						<div>
-							<p onClick={this.showPasswordHandler}>Show Password?</p>
+							<p><Link to="/login">Already Registered?</Link></p>
+							<label>Show Password</label>
+							<input type="checkbox" onChange={this.showPasswordHandler}/>
 						</div>
 						
 					</form>
 				</main>
 			</div>
-
+			</section>
 
 		);
 	}
