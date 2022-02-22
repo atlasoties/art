@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import './Register.css';
+import React from 'react';
+import {Link} from 'react-router-dom';
 
+import './Login.css';
 
-class Register extends React.Component {
+class Login extends React.Component {
 
+	
 	showPasswordHandler(event) {
+		//event.preventDefault();
 		const password = document.querySelector("#pass1");
-		const type = password.getAttribute("type")==="password"?"text":"password";
-		password.setAttribute("type", type);
+		
+		if(event.target.checked){
+			password.setAttribute("type", "text");
+		}else{
+			password.setAttribute("type","password");
+		}
 
-	}
+	}	
 	render() {
 		return (
+	
+		<section id="back">
 			<div id="tsparticles">
 				<main className="box">
 					<h2>Login</h2>
@@ -27,20 +35,21 @@ class Register extends React.Component {
 								required />
 						</div>
 						<div>
-						<button type="submit">Continue</button>
-						<p><a  href="#">Not Registered?</a></p>
+							<button>Continue</button>
 						</div>
 						<div>
-							<p onClick={this.showPasswordHandler}>Show Password?</p>
+							<p><Link to="/register">Not Registered?</Link></p>
+							<label clasName="check">Show Password</label>
+							<input className="check1" type="checkbox" onChange={this.showPasswordHandler}/>
 						</div>
 						
 					</form>
 				</main>
 			</div>
-
-
+			</section>
+			
 		);
 	}
 }
 
-export default Register;
+export default Login;

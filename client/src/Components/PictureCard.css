@@ -1,0 +1,36 @@
+.container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.card{
+	width: 320px;
+	height: 50vh;
+	display: block;
+	border: whitesmoke 2px solid;
+	border-top:5px tomato solid ;
+	border-radius:5px;
+	color: black;
+	background-color: whitesmoke;
+	margin: 15px;
+	box-shadow: -4px 4px 6px black;
+	background-size:cover ;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: 10px;
+	padding-bottom: 25px;
+}
+
+.card:hover{
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+img{
+	width: 100%;
+	height: 100%;
+}
+div h2{
+	padding: 10px;
+}
