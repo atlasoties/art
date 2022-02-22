@@ -27,7 +27,13 @@ class Home extends React.Component {
 						</figure>
 					</div>
 				</section>
-				<div className="body">Put Something Here </div>
+				<div className="body">
+					<div id="flip">
+						<div><div>Put Something Here</div> </div>
+						<div><div>Put Something Here</div> </div>
+						<div><div>Put Something Here</div> </div>
+					</div>
+				</div>
 				<Footer/>
 			</div>
 			);
