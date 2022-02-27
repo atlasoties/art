@@ -3,9 +3,9 @@ import './Home.css';
 import NavBar from '../Components/NavBar.jsx';
 import Footer from '../Components/Footer';
 import PictureCard from '../Components/PictureCard';
-import pic1 from "../../public/asset/img/undraw_chatting_light.svg";
-import pic2 from "../../public/asset/img/undraw_video_call_light.svg";
-import pic3 from "../../public/asset/img/undraw_team_chat_light.svg";
+import pic1 from "./undraw_chatting_light.svg";
+import pic2 from "./undraw_video_call_light.svg";
+import pic3 from "./undraw_team_chat_light.svg";
 
 class Home extends React.Component {
 

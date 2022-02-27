@@ -19,17 +19,17 @@ class NavBar extends Component{
 			section.style.backgroundColor ="#23272A";
 			headers.style.color="whitesmoke";
 			slider.style.backgroundColor="#6666ff";
-			img1.src="../asset/img/undraw_chatting_dark.svg";
-			img2.src="../asset/img/undraw_video_call_dark.svg";
-			img3.src="../asset/img/undraw_team_chat_dark.svg";
+			img1.src="../../asset/img/undraw_chatting_dark.svg";
+			img2.src="../../asset/img/undraw_video_call_dark.svg";
+			img3.src="../../asset/img/undraw_team_chat_dark.svg";
 		}
 		else{
 			slider.style.backgroundColor="#ccc";
 			headers.style.color="rgb(0,0,0)";
 			section.style.backgroundColor ="rgb(255,255,255)";
-			img1.src="../asset/img/undraw_chatting_light.svg";
-			img2.src="../asset/img/undraw_video_call_light.svg";
-			img3.src="../asset/img/undraw_team_chat_light.svg";
+			img1.src="../../asset/img/undraw_chatting_light.svg";
+			img2.src="../../asset/img/undraw_video_call_light.svg";
+			img3.src="../../asset/img/undraw_team_chat_light.svg";
 		}
 
 	}
