@@ -56,8 +56,7 @@ class UserActions{
 	}
 	
 	async update (request, response){
-			const id = request.params.id;
-
+		const id = request.params.id;
 	}
 	
 	async deletes(request, response){
