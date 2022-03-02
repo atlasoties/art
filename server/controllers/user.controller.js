@@ -5,7 +5,7 @@ const User = mongoose.model("User");
 class UserActions{
 	
 
-create = (request ,response) => {
+async create = (request ,response) => {
 
 	const {name , email , password, dob} = request.body;
 	
@@ -17,11 +17,13 @@ create = (request ,response) => {
 	
 			if(password.length < 8) response.status(404).json("Password length must be equal to 8 characters or above");
 			
-				const user = new User(
-					{name,
+				const user = await new User(
+					{
+					name,
 					email,
 					password:hash(password+process.env.SALT),
-					dob});
+					dob
+				});
 				user.save();
 				response.json({
 					message:"user registerd successfully"
@@ -29,26 +31,25 @@ create = (request ,response) => {
 	
 		}
 		else{
-			response.status(400).json("ALL fields should be filled in")
+			response.status(400).json("All fields should be filled in")
 		}
 	}
 	
 	
-	 login (request ,response) {
-			const {email,password} = request.body;
-			if(email && password){
-	
-			const user = User.findOne({
-				email,
+	 async login (request ,response) {
+		const {email,password} = request.body;
+		if(email && password){
+
+			const user = await User.findOne({
+				email:email,
 				password: hash(password+process.env.SALT), 
 			});
-			if(!user){
-				response.status(404).json("Your Credential does not match");
-			}else{
+			if(user){
 				response.status(200).json("user logged in successfully");
+			}else{
+				response.status(404).json("Your Credential does not match");
 			}
 		}else{
-	
 			response.status(400).json("All fields should be filled in");
 		}
 	}
