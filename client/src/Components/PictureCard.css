@@ -5,21 +5,21 @@
 }
 
 .card{
-	width: 320px;
+	width: 320%;
 	height: 50vh;
 	display: block;
-	border: whitesmoke 2px solid;
-	border-top:5px tomato solid ;
-	border-radius:5px;
+	border: whitesmoke 2% solid;
+	border-top:5% tomato solid ;
+	border-radius:5%;
 	color: black;
 	background-color: whitesmoke;
-	margin: 15px;
-	box-shadow: -4px 4px 6px black;
+	margin: 15%;
+	box-shadow: -4% 4% 6% black;
 	background-size:cover ;
 	background-repeat: no-repeat;
 	position: relative;
-	z-index: 10px;
-	padding-bottom: 25px;
+	z-index: 10%;
+	padding-bottom: 25%;
 }
 
 .card:hover{
