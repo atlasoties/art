@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&family=Recursive:wght@300&display=swap');
+
+.nav-css{
+	display: flex;
+	font-family: 'Recursive', sans-serif;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content:center;
+	background-color: transparent;
+	z-index: 10;
+	width: 100vw;
+	height: 3.5rem;
+	font-size: 1rem;
+
+}
+
+.log{
+	background-color: #476b6b;
+	border-radius: 5px;
+	color: white;
+	height: 2rem;
+	padding: 5px;
+
+}
+
+.log:hover{
+	background-color: #618685;
+	color: white;
+	cursor: pointer;
+}

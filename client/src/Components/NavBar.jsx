@@ -42,13 +42,7 @@ class NavBar extends Component{
 					  <input onChange={this.toggleSwithcher} type="checkbox"/>
 					  <span className="slider round"></span>
 					</label>
-					<div  className="log">
-						<Link to="/login">Login</Link>
-					</div>
-					<div className="reg">
-						<Link to="/register">Register</Link>
-					</div>
-				</nav>
+				</nav> 
 			);
 	}
 }
