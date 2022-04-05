@@ -21,10 +21,12 @@ mongoose.connection.on('error', (err) => {
 mongoose.connection.once('open', () => {
 	console.log("Mongodb connected");
 });
-require(path.join(__dirname, "models", "user.model"));
+require(path.resolve(__dirname, "models", "user.model"));
+require(path.resolve(__dirname, "models", "product.model"));
 
 
-app.use('/user', require(path.join(__dirname, "routes", "user.route")));
+app.use('/user', require(path.resolve(__dirname, "routes", "user.route")));
+app.use('/product', require(path.resolve(__dirname, "routes", "product.route")));
 
 app.listen(PORT, () => {
 	console.log(`Server is listening on port ${PORT}`);

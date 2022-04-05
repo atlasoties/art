@@ -57,6 +57,7 @@ class UserActions{
 	
 	async update (request, response){
 		const id = request.params.id;
+		User.findOneAndUpdate({id:id});
 	}
 	
 	async deletes(request, response){
