@@ -23,8 +23,7 @@ mongoose.connection.once('open', () => {
 });
 require(path.resolve(__dirname, "models", "user.model"));
 require(path.resolve(__dirname, "models", "product.model"));
-
-
+/******/
 app.use('/user', require(path.resolve(__dirname, "routes", "user.route")));
 app.use('/product', require(path.resolve(__dirname, "routes", "product.route")));
 

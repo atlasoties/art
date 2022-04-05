@@ -10,7 +10,8 @@ const productSchema = new mongoose.Schema({
 		required: "Description is required"
 	},
 	owner: {
-		type: User,
+		type: Schema.Types.ObjectId,
+		ref:'User'
 
 	},
 	category: {

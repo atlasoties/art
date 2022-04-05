@@ -8,22 +8,19 @@ class ProductActions {
 	async add(request, response) {
 
 		const { name, description, price, category } = request.body;
-
-
 		if (name && description && price && category) {
-
-			const product = await new Prodcct(
+			const product = await new Product(
 				{
 					name,
 					description,
 					price,
-					dob
+					category
 				});
-			product.save();
-			response.json({
-				message: "Product added successfully"
-			});
-		}
+				product.save();
+				response.json({
+					message: "Product added successfully"
+				});
+			}
 		else {
 			response.status(400).json("All fields should be filled in")
 		}
