@@ -1,0 +1,32 @@
+.links
+{    
+    height: 100%;
+    width: 16%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:rgba(21,30,63,255);
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.logo {
+    font-size: 200%;
+    margin-left: 5%;
+    font-weight: bold;
+    color:Black;
+    cursor: pointer;
+}  
+.links div
+{
+    padding: 6% 8% 6% 16%;
+    text-decoration: none;
+    font-size:90%;
+    color: #818181;
+    display: block;
+}
+@media screen and (max-height: 450px) {
+    .links {padding-top: 15px;}
+    .links div {font-size: 18px;}
+  }
+  

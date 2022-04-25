@@ -1,36 +1,64 @@
-.container{
+/* .container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+} */
+
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	overflow: visible;
+
 }
 
-.card{
-	width: 320px;
-	height: 50vh;
-	display: block;
-	border: whitesmoke 2px solid;
-	border-top:5px tomato solid ;
-	border-radius:5px;
+.card {
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+	height: 100vh;
+	background-color: whitesmoke;
+	padding: 6rem 2.6rem 6rem 2.6rem;
+	/* border: whitesmoke 2% solid;
+	border-top: 5% tomato solid;
+	border-radius: 5%;
 	color: black;
 	background-color: whitesmoke;
-	margin: 15px;
-	box-shadow: -4px 4px 6px black;
-	background-size:cover ;
+	margin: 15%;
+	box-shadow: -4% 4% 6% black; */
+	/* background-size: cover;
 	background-repeat: no-repeat;
-	position: relative;
-	z-index: 10px;
-	padding-bottom: 25px;
+	position: relative; */
+
+
 }
 
-.card:hover{
-	cursor: pointer;
-	transform: scale(1.05);
+
+.card-img img {
+	width: 50vw;
+	height: 100vh;
+	background-size: cover;
+	align-items: flex-start;
 }
 
-img{
-	width: 100%;
-	height: 100%;
+.card-text {
+
+	width: 50vw;
+	height: 50vh;
+
 }
-div h2{
-	padding: 10px;
+
+.card-text p {
+	font-size: 1.5rem;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	margin: 0 2.5rem 0 2.5rem;
+	text-align: left;
+	color: black;
+	text-transform: none;
+}
+
+.card-text h1 {
+	font-family: 'Tapestry', cursive;
+	font-size: 3rem;
 }

@@ -1,0 +1,51 @@
+import React from 'react';
+import './post.css'
+import likePost from '../../asset/img/like.png';
+import lovePost from '../../asset/img/heart.png';
+import {onlineUsers} from '../../userdata';
+import {Po} from '../../posts';
+import Sidebar from '../../Components/sidebar/sidebar';
+import Topbar from '../../Components/topbar/Topbar';
+const a3 = Po.map(t1 => ({...t1, ...onlineUsers.find(t2 => t2.id === t1.id)}))
+class Posts extends React.Component
+{     
+    constructor()
+    {
+        super();
+        this.state={
+            a3
+        };
+        
+    }
+    render(){
+        return(
+            <div className="post">
+                <div className="side-bar">
+            <Sidebar/>
+          
+            </div>
+            <div className="posters">
+                <div>
+                <Topbar/>
+                </div>
+        {          this.state.a3.map(now=>
+              <div className='posters-elements' >
+                  <div className='post-info'>
+                  <img className='post-user-profile' src={now.uimg} alt={now.name} />
+                  <div className='post-user-name' >{now.name}</div>
+                  </div>
+                  <div className='post-thought'>{now.thought}</div>
+              <img className='post-pic'src={now.pic} alt={now.thought}/>
+              <div className="l-post">
+             <div className="li-post"> <img className='like-post' src={likePost}  alt="like" /></div>
+             <div className="lo-post"> <img className='love-post'src={lovePost} alt="love" /></div>
+             <span className="postLikeCounter"> people like it</span>
+              </div>
+              </div>
+          )}
+          </div></div>
+          
+);
+    }
+}
+export default Posts;
