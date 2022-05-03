@@ -3,9 +3,9 @@ import './Home.css';
 import NavBar from '../Components/NavBar.jsx';
 import Footer from '../Components/Footer';
 import PictureCard from '../Components/PictureCard';
-import pic1 from "../asset/img/undraw_chatting_light.svg";
-import pic2 from "../asset/img/undraw_video_call_light.svg";
-import pic3 from "../asset/img/undraw_team_chat_light.svg";
+import pic1 from "../Asset/img/undraw_chatting_light.svg";
+import pic2 from "../Asset/img/undraw_video_call_light.svg";
+import pic3 from "../Asset/img/undraw_team_chat_light.svg";
 import LoginLogout from '../Components/links/link.component';
 
 

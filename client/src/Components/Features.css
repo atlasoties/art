@@ -4,7 +4,7 @@
 .features{
 	width: 100%;
 	height: 75vh;
-	background-image: url('../../public/asset/img/woman_dark.svg');
+	background-image: url('../Asset/img/woman_dark.svg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
