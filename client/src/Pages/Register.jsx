@@ -25,10 +25,10 @@ class Register extends React.Component {
 		}
 
 	}
-	async onSubmitHandler(){
+	onSubmitHandler = async ()=>{
 		try{
 			const {name,email,password,dob} = this.state;
-		    const {data} = await axios.post(registerApi,{
+		    const data = await axios.post(registerApi,{
 													 	name,
 													 	email,
 													 	password,
