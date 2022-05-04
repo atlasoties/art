@@ -9,35 +9,35 @@ const blogSchema = new mongoose.Schema({
 		ref:"User"
 	},
 	likes: [
-	{
-		user: {
-			type: Schema.Types.ObjectId,
-			ref:'User'
+		{
+			user: {
+				type: Schema.Types.ObjectId,
+				ref:'User'
+			}
 		}
-	}
 	],
 	comments:[
-	{
-		user: {
-			type: Schema.Types.ObjectId,
-			ref:'User'
-		},
-		text:{
-			type:String,
-			required:true
-		},
-		name:{
-			type:String
-		},
-		avatar:{
-			type:String
-		},
-		date:{
-			type:Date,
-			default:Date.now
-		}
+		{
+			user: {
+				type: Schema.Types.ObjectId,
+				ref:'User'
+			},
+			text:{
+				type:String,
+				required:true
+			},
+			name:{
+				type:String
+			},
+			avatar:{
+				type:String
+			},
+			date:{
+				type:Date,
+				default:Date.now
+		    }
 
-	}
+		}
 	]
 },
 {
