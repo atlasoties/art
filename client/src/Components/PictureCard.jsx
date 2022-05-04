@@ -8,7 +8,7 @@ class PictureCard extends Component {
 	render() {
 		return (
 			<figure>
-				<div className="card">
+				<div className={this.props.id}>
 					<div className="card-img">
 						<img id={this.props.id} alt="Illustration" src={this.props.url} />
 					</div>

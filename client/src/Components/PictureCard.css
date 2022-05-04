@@ -13,27 +13,34 @@
 
 }
 
-.card {
+.img2 {
 	display: flex;
 	flex-direction: row;
 	width: 100vw;
 	height: 100vh;
-	background-color: whitesmoke;
+	background-color: white;
 	padding: 6rem 2.6rem 6rem 2.6rem;
-	/* border: whitesmoke 2% solid;
-	border-top: 5% tomato solid;
-	border-radius: 5%;
-	color: black;
-	background-color: whitesmoke;
-	margin: 15%;
-	box-shadow: -4% 4% 6% black; */
-	/* background-size: cover;
-	background-repeat: no-repeat;
-	position: relative; */
-
-
 }
 
+.img1 {
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+	height: 100vh;
+	background-color: white;
+	padding: 6rem 2.6rem 6rem 2.6rem;
+	margin-bottom: 10%;
+}
+
+.img3 {
+	display: flex;
+	flex-direction: row-reverse;
+	width: 100vw;
+	height: 100vh;
+	background-color: whitesmoke;
+	padding: 6rem 2.6rem 6rem 2.6rem;
+	margin-top: 10%;
+}
 
 .card-img img {
 	width: 50vw;
@@ -50,7 +57,7 @@
 }
 
 .card-text p {
-	font-size: 1.5rem;
+	font-size: 1.4rem;
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	margin: 0 2.5rem 0 2.5rem;
 	text-align: left;
@@ -61,4 +68,5 @@
 .card-text h1 {
 	font-family: 'Tapestry', cursive;
 	font-size: 3rem;
+	color: gray;
 }

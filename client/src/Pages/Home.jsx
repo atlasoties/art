@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
-//import NavBar from '../Components/NavBar.jsx';
+import '../Components/links/link.style.css';
+import NavBar from '../Components/NavBar.jsx';
 import Footer from '../Components/Footer';
 import PictureCard from '../Components/PictureCard';
 import pic1 from "../asset/img/undraw_blog_post_re_fy5x.svg";
@@ -11,25 +12,6 @@ import LoginLogout from '../Components/links/link.component';
 let text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum corrupti impedit laborum accusantium culpa optio unde aliquid accusamus maxime quos sunt eligendi quidem quisquam ut ipsa repellat porro voluptas aliquam necessitatibus quod, quasi labore possimus obcaecati asperiores? Dolores eum necessitatibus reiciendis quod dolor beatae assumenda sed, nemo at. Repellat, quibusdam!";
 
 class Home extends React.Component {
-
-	constructor() {
-		super()
-		this.state = {
-			pages: [
-				{
-					linkPlace: '/register',
-					linkName: 'Register',
-					id: 1
-				},
-				{
-					linkPlace: '/login',
-					linkName: 'Login',
-					id: 2
-				},
-
-			]
-		};
-	}
 
 	render() {
 		return (
@@ -46,10 +28,18 @@ class Home extends React.Component {
 							<h4>Pan Art will save Your Job, Join US</h4>
 						</div>
 						<div className='forlinks'>
-							{this.state.pages.map(pages => <LoginLogout place={pages.linkPlace} placeName={pages.linkName} />)}
+							<nav className='nav-css'>
+								<div className="log">
+									<a href="/register">Register</a>
+									{/* <Link to="/register">Register</Link> */}
+								</div>
+								<div className="log">
+									{/* <Link to="/login">Login</Link> */}
+									<a href="/login">Login</a>
+								</div>
+							</nav>
 						</div>
 					</header>
-
 					<div className="welcome">
 
 
@@ -62,7 +52,7 @@ class Home extends React.Component {
 					</div>
 				</section>
 				<div id="flip">
-					<img src={pic4} alt="" />
+					{/* <img src={pic4} alt="" /> */}
 				</div>
 				<Footer />
 			</div>
