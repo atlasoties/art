@@ -1,0 +1,11 @@
+.feed-class{
+    height: 100vh;
+    background-color: rgb(1, 1, 100);
+    background-size: cover;
+    background-repeat:no-repeat;
+
+}
+.feed-input{
+    position: absolute;
+    margin:20% 0% 0% 40%;
+}

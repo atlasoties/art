@@ -1,10 +1,8 @@
 .topbar{
     background-color: rgba(21,30,63,255);
-    margin-left: 17%;
-    margin-right: 150%;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    position:fixed;
+     margin:0% 17% 0% 17%; 
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 30%;
 }
 .top-bar-profile
 {

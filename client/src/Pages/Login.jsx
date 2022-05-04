@@ -35,7 +35,7 @@ class Login extends React.Component {
 								required />
 						</div>
 						<div>
-							<button>Continue</button>
+							<button className='lo-continue'>Continue</button>
 						</div>
 						<div>
 							<p><Link to="/register">Not Registered?</Link></p>

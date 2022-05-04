@@ -6,6 +6,7 @@ import {onlineUsers} from '../../userdata';
 import {Po} from '../../posts';
 import Sidebar from '../../Components/sidebar/sidebar';
 import Topbar from '../../Components/topbar/Topbar';
+import Online from '../../Components/online/Online';
 const a3 = Po.map(t1 => ({...t1, ...onlineUsers.find(t2 => t2.id === t1.id)}))
 class Posts extends React.Component
 {     
@@ -20,14 +21,15 @@ class Posts extends React.Component
     render(){
         return(
             <div className="post">
-                <div className="side-bar">
-            <Sidebar/>
+
+            <Sidebar/>  
           
-            </div>
-            <div className="posters">
-                <div>
                 <Topbar/>
-                </div>
+            
+                <Online />
+     
+                <div className="post-per">
+
         {          this.state.a3.map(now=>
               <div className='posters-elements' >
                   <div className='post-info'>
@@ -43,7 +45,8 @@ class Posts extends React.Component
               </div>
               </div>
           )}
-          </div></div>
+          </div>
+          </div>
           
 );
     }

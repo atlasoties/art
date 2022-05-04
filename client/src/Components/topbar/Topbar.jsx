@@ -23,7 +23,7 @@ class Topbar extends React.Component{
     </div>
     </div>
     <div className="topbar-button">
-    <LoginLogout place={'/artupload'} placeName={'Upload your art'}/>
+    <LoginLogout place={'/artupload'} placeName={'Upload art'}/>
     </div>
     </div>
 

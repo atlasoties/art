@@ -15,6 +15,7 @@ class Cuser extends React.Component
     render()
     {
         return(
+            <div className="chat-class">{
          this.state.onlineUsers.map(onlineUser=>
        
                  <div className="messages">
@@ -34,7 +35,8 @@ class Cuser extends React.Component
             </div>
             </div>
                     
-             )
+             )}
+             </div>
         );
     }
     

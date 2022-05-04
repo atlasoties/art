@@ -1,27 +1,32 @@
 .post {
-    display: flex;
     background-color: rgb(1, 1, 100);
-    flex-direction: row;
-    flex-wrap: wrap;
+    }
+.post-per{
+ 
+display: grid;
+  grid-template-columns: auto;
+  gap: 0%;
+  margin-left:23%;
+  padding: 10%;
 }
 
 .posters-elements {
     display: flex;
     flex-direction: column;
     float: left;
-    font-size: 1.2rem;
-    font-size: large;
+    font-size: 90%;
+    width: 50%;
+    height: 50%;
     color: aqua;
-    margin: 23% 0% 5% 17%;
+    margin: 0% 0% 5% 0%;
     padding: 1% 2% 2% 2%;
     background-color: rgb(21, 30, 63);
-    width: 22rem;
-    height: 22rem;
+    width: 20rem;
+    height: 20rem;
     border: 3px solid rgba(21, 30, 63, 0);
     box-shadow: 0 0.3rem rgba(121, 121, 121, 0.65);
     border: none;
     border-radius: 30px;
-
 }
 
 .post-info {
@@ -38,20 +43,23 @@
     border-radius: 50%;
     border: 3px solid rgba(21, 30, 63, 255);
     object-fit: cover;
+    padding: 1% 1% 1% 1%;
 }
 
 .post-pic {
-    width: 20rem;
-    height: 15rem;
+    width:18rem;
+    height: 20rem;
+    padding: 1% 1% 1% 1%;
 }
 
 .l-post {
     display: flex;
     flex-direction: row;
+    padding: 1% 1% 1% 1%;
 }
 
 .like-post {
-    width: 24px;
+    width:24px;
     height: 24px;
 }
 
@@ -59,3 +67,8 @@
     width: 24px;
     height: 24px;
 }
+ @media screen and (max-width: 800px) {
+.post-per{
+margin-left: 0%;
+}
+} 
