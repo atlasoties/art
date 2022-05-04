@@ -1,14 +1,25 @@
+<<<<<<< HEAD
 .nav-css {
+=======
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&family=Recursive:wght@300&display=swap');
+
+.nav-css{
+>>>>>>> f273282ee6c75f8e4ef9f05ab16c35e55cec95cc
 	display: flex;
 	font-family: 'Recursive', sans-serif;
 	flex-direction: row;
 	flex-wrap: nowrap;
+<<<<<<< HEAD
 	justify-content: center;
+=======
+	justify-content:center;
+>>>>>>> f273282ee6c75f8e4ef9f05ab16c35e55cec95cc
 	background-color: transparent;
 	z-index: 10;
 	width: 100vw;
 	height: 3.5rem;
 	font-size: 1rem;
+<<<<<<< HEAD
 }
 
 .log {
@@ -28,3 +39,22 @@
 	color: white;
 	cursor: pointer;
 }
+=======
+
+}
+
+.log{
+	background-color: #476b6b;
+	border-radius: 5px;
+	color: white;
+	height: 2rem;
+	padding: 5px;
+
+}
+
+.log:hover{
+	background-color: #618685;
+	color: white;
+	cursor: pointer;
+}
+>>>>>>> f273282ee6c75f8e4ef9f05ab16c35e55cec95cc

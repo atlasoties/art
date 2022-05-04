@@ -3,8 +3,8 @@ const {create,login,deletes,update,show} = require('../controllers/user.controll
 
 router.post('/register',create);
 router.post('/login',login);
-router.post('/delete',deletes);
-router.post('/update',update);
-router.post('/show',show);
+router.delete('/delete/:id',deletes);
+router.put('/update/:id',update);
+router.get('/show',show);
 
 module.exports = router;

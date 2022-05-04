@@ -13,6 +13,7 @@
 
 }
 
+<<<<<<< HEAD
 .img2 {
 	display: flex;
 	flex-direction: row;
@@ -47,6 +48,24 @@
 	height: 100vh;
 	background-size: cover;
 	align-items: flex-start;
+=======
+.card{
+	width: 320%;
+	height: 50vh;
+	display: block;
+	border: whitesmoke 2% solid;
+	border-top:5% tomato solid ;
+	border-radius:5%;
+	color: black;
+	background-color: whitesmoke;
+	margin: 15%;
+	box-shadow: -4% 4% 6% black;
+	background-size:cover ;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: 10%;
+	padding-bottom: 25%;
+>>>>>>> f273282ee6c75f8e4ef9f05ab16c35e55cec95cc
 }
 
 .card-text {

@@ -15,6 +15,7 @@ class NavBar extends Component {
 		const slider = document.querySelector(".slider");
 		const headers = document.querySelector(".heading")
 		const section = document.querySelector("section");
+<<<<<<< HEAD
 		if (event.target.checked) {
 			section.style.backgroundColor = "#23272A";
 			headers.style.color = "whitesmoke";
@@ -31,10 +32,28 @@ class NavBar extends Component {
 			img1.src = "../asset/img/undraw_chatting_light.svg";
 			img2.src = "../asset/img/undraw_video_call_light.svg";
 			img3.src = "../asset/img/undraw_team_chat_light.svg";
+=======
+		if(event.target.checked){
+			section.style.backgroundColor ="#23272A";
+			headers.style.color="whitesmoke";
+			slider.style.backgroundColor="#6666ff";
+			img1.src="../../asset/img/undraw_chatting_dark.svg";
+			img2.src="../../asset/img/undraw_video_call_dark.svg";
+			img3.src="../../asset/img/undraw_team_chat_dark.svg";
+		}
+		else{
+			slider.style.backgroundColor="#ccc";
+			headers.style.color="rgb(0,0,0)";
+			section.style.backgroundColor ="rgb(255,255,255)";
+			img1.src="../../asset/img/undraw_chatting_light.svg";
+			img2.src="../../asset/img/undraw_video_call_light.svg";
+			img3.src="../../asset/img/undraw_team_chat_light.svg";
+>>>>>>> f273282ee6c75f8e4ef9f05ab16c35e55cec95cc
 		}
 
 	}
 
+<<<<<<< HEAD
 	render() {
 		return (
 
@@ -45,6 +64,18 @@ class NavBar extends Component {
 				</label>
 			</nav>
 		);
+=======
+	render(){
+		return(
+			
+				<nav className="nav-wrapper">
+					<label className="switch">
+					  <input onChange={this.toggleSwithcher} type="checkbox"/>
+					  <span className="slider round"></span>
+					</label>
+				</nav> 
+			);
+>>>>>>> f273282ee6c75f8e4ef9f05ab16c35e55cec95cc
 	}
 }
 
