@@ -51,11 +51,11 @@ class UserActions{
 					token:token
 				});
 			}else{
-				response.status(404).json("Your Credential does not match");
+				response.json("Your Credential does not match");
 			}
 		}
 		else{
-			response.status(400).json("All fields should be filled in");
+			response.json("All fields should be filled in");
 		}
 	}
 	
