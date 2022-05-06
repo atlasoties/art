@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const hash = require('js-sha256');
 const User = mongoose.model("User");
-
+const jwt = require("jwt-then");
 class UserActions{
 	
 
@@ -45,7 +45,11 @@ class UserActions{
 				password: hash(password+process.env.SALT), 
 			});
 			if(user){
-				response.status(200).json("user logged in successfully");
+				const token = await jwt.sign({id:user.id},process.env.SECRET);
+				response.status(200).json({
+					message:"user logged in successfully",
+					token:token
+				});
 			}else{
 				response.status(404).json("Your Credential does not match");
 			}
