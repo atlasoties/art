@@ -28,12 +28,11 @@ class Login extends React.Component {
 		event.preventDefault();
 		try{
 			const {email,password} = this.state;
-		    const data = await axios.post(loginApi,{
+		    const response = await axios.post(loginApi,{
 													 	email,
 													 	password,
 													 	});
-		    console.log(data);
-		 localStorage.setItem("art-user",JSON.stringify(data));
+		 localStorage.setItem("art-user",JSON.stringify(response.data.token));
 		 this.props.history.push("/");
 		}catch(err){
 			console.log(err);
