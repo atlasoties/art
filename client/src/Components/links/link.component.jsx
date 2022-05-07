@@ -11,14 +11,9 @@ class LoginLogout extends Component
     return(
 <nav className='nav-css'>
     <div  className="log">
-<<<<<<< HEAD
-        <Link to={this.props.place}>{this.props.placeName}</Link>
-    </div>
-=======
         <Link style={{backgroundColor:'url(${this.props.colorCode})'}}to={this.props.place}>{this.props.placeName}</Link>
     </div>
        
->>>>>>> f273282ee6c75f8e4ef9f05ab16c35e55cec95cc
 </nav>
     );
 }}

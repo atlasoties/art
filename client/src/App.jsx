@@ -3,7 +3,6 @@ import './App.css';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
-<<<<<<< HEAD:client/src/App.js
 import Chat from './Pages/Chat';
 import Posts from './Pages/post/post';
 import Event from './Pages/Event/Event';
@@ -15,10 +14,8 @@ import Evin from './Pages/Event/event-input';
 import Blin from './Pages/blog/blog-input';
 import Shin from './Pages/shop/shop-input';
 import Blon from './Pages/blog/blog-onclick';
-=======
 import Features from './Components/Features';
-
->>>>>>> f273282ee6c75f8e4ef9f05ab16c35e55cec95cc:client/src/App.jsx
+import Features from './Components/Features';
 import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 
 class App extends React.Component{
@@ -41,6 +38,7 @@ class App extends React.Component{
           <Route exact path='/blogupload' element={< Blin/>}></Route>
           <Route exact path='/artsupload' element={< Shin/>}></Route>
           <Route exact path='/blogload' element={< Blon/>}></Route>
+
         </Routes>
       </Router>
       );

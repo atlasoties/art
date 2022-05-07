@@ -17,7 +17,14 @@ const userSchema = new mongoose.Schema({
 		type:Date,
 		required:"Date of Birth is required"
 	},
-
+	isAvatarImageSet:{
+		type:Boolean,
+		default:false
+	},
+	avatarImage:{
+		type:String,
+		default:" "
+	},
 },
 {
 	timestamps:true

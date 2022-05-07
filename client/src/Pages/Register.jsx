@@ -1,11 +1,21 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link,useNavigate} from 'react-router-dom';
 import './Register.css';
+import axios from 'axios';
+import {registerApi} from '../util/APIRoutes';
 
 class Register extends React.Component {
-
+	constructor(props){
+		super(props);
+		this.state = {
+			name:null,
+			email:null,
+			password:null,
+			dob:null
+		}
+	}
 	showPasswordHandler(event) {
-		//event.preventDefault();
+		event.preventDefault();
 		const password = document.querySelector("#pass1");
 		
 		if(event.target.checked){
@@ -15,33 +25,52 @@ class Register extends React.Component {
 		}
 
 	}
+	onSubmitHandler = async ()=>{
+		try{
+			const {name,email,password,dob} = this.state;
+		    const data = await axios.post(registerApi,{
+													 	name,
+													 	email,
+													 	password,
+													 	dob});
+		 this.props.history.push("/login");
+		}catch(err){
+			console.log(err);
+		}
+	}
+	 handleForm = (event) =>{
+		const {name,value}  = event.target;
+		this.setState({[name]:value});
+	}
+
 	render() {
 		return (
 			<section id="back">
 			<div id="tsparticles ">
 				<main className="box">
 					<h2>Create an account</h2>
-					<form>
+					<form noValidate>
 						<div className="inputBox">
-							<label htmlFor="userName">USERNAME</label>
-							<input type="text" name="userName" id="userName"  required />
+							<label htmlFor="name">NAME</label>
+							<input type="text" name="name" id="name"  onChange={this.handleForm} required />
 						</div>
 						<div className="inputBox">
 							<label htmlFor="email">EMAIL</label>
-							<input type="email" name="email" id="email"  required />
+							<input type="email" name="email" id="email" onChange={this.handleForm} required />
 						</div>
 						<div className="inputBox">
-							<label htmlFor="pass1">PASSWORD</label>
-							<input type="password" name="pass1" id="pass1" 
+							<label htmlFor="password">PASSWORD</label>
+							<input type="password" name="password" onChange={this.handleForm} id="pass1" 
 								required />
 						</div>
 						<div className="inputBox">
 							<label htmlFor="bdate">DATE OF BIRTH</label>
-							<input type="date" name="bdate" id="userConfirmPassword"
+							<input type="date" name="dob" onChange={this.handleForm} id="userConfirmPassword"
 								required />
 						</div>
 						<div>
-						<button className='continue'>Continue</button>
+
+						<button onClick = {this.onSubmitHandler}>Continue</button>
 						</div>
 						<div>
 							<p><Link to="/login">Already Registered?</Link></p>

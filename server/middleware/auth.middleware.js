@@ -1,6 +1,6 @@
 const jwt = require("jwt-then");
 
-module.exports = async (request,response,next) => {
+const protect = async (request,response,next) => {
 	try{
 		if(!request.headers.authorization) throw "Forbidden!!";
 		const token = request.headers.authorization.split(" ")[1];
@@ -13,3 +13,6 @@ module.exports = async (request,response,next) => {
 		})
 	}
 }
+}
+
+module.exports = {protect,};

@@ -41,7 +41,6 @@ class Home extends React.Component {
 						</div>
 					</header>
 					<div className="welcome">
-
 						<figure className=" wrap">
 							<PictureCard text={text} title="Title" id="img2" url={pic2} />
 							<PictureCard text={text} title="Event Advertising" id="img3" url={pic3} />
