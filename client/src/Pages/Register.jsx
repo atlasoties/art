@@ -33,8 +33,7 @@ class Register extends React.Component {
 													 	email,
 													 	password,
 													 	dob});
-		 localStorage.setItem("art-user",JSON.stringify(data));
-
+		 this.props.history.push("/login");
 		}catch(err){
 			console.log(err);
 		}
@@ -50,7 +49,7 @@ class Register extends React.Component {
 			<div id="tsparticles ">
 				<main className="box">
 					<h2>Create an account</h2>
-					<form onSubmit = {this.onSubmitHandler} noValidate>
+					<form noValidate>
 						<div className="inputBox">
 							<label htmlFor="name">NAME</label>
 							<input type="text" name="name" id="name"  onChange={this.handleForm} required />
@@ -70,7 +69,7 @@ class Register extends React.Component {
 								required />
 						</div>
 						<div>
-						<button type="submit">Continue</button>
+						<button onClick = {this.onSubmitHandler}>Continue</button>
 						</div>
 						<div>
 							<p><Link to="/login">Already Registered?</Link></p>

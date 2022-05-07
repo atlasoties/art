@@ -8,6 +8,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(require('cors')());
+
 mongoose.connect(process.env.DATABASE, {
 	useUnifiedTopology: true,
 	useNewUrlParser: true,
