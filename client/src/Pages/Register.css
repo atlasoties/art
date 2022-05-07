@@ -17,7 +17,7 @@
 header {
     display: none;
 }
-button{
+.continue{
     float:left;
     display: block;
 }
