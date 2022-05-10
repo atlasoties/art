@@ -1,0 +1,21 @@
+.header-list
+{
+    display: flex;
+    flex-direction:row;
+
+    font-size:medium;
+    font-weight: bold;
+    color: whitesmoke;
+}
+.home{
+    margin: 1% 5% 1% 1%;
+}
+.event{
+    margin: 1% 5% 1% 1%;
+}
+.blog{
+    margin: 1% 5% 1% 1%;
+}
+.notification{
+    margin: 1% 5% 1% 1%;
+}

@@ -13,5 +13,6 @@ const protect = async (request,response,next) => {
 		})
 	}
 }
+}
 
 module.exports = {protect,};

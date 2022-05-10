@@ -69,6 +69,7 @@ class Register extends React.Component {
 								required />
 						</div>
 						<div>
+
 						<button onClick = {this.onSubmitHandler}>Continue</button>
 						</div>
 						<div>
