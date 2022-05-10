@@ -1,4 +1,4 @@
-import React from'react';
+import React from 'react';
 import './App.css';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
@@ -15,32 +15,33 @@ import Blin from './Pages/blog/blog-input';
 import Shin from './Pages/shop/shop-input';
 import Blon from './Pages/blog/blog-onclick';
 import Features from './Components/Features';
-import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
+import Features from './Components/Features';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-class App extends React.Component{
-  render(){
+class App extends React.Component {
+  render() {
     return (
-      <Router> 
-        <Routes> 
+      <Router>
+        <Routes>
           <Route exact path='/' element={< Features />}></Route>
           <Route exact path='/login' element={< Login />}></Route>
           <Route exact path='/register' element={< Register />}></Route>
           <Route exact path='/chat' element={< Chat />}></Route>
-          <Route exact path='user/feeds' element={< Posts />}></Route>
+          <Route exact path='/feeds' element={< Posts />}></Route>
           <Route exact path='/posts' element={< Posts />}></Route>
           <Route exact path='/event' element={< Event />}></Route>
           <Route exact path='/blogs' element={< Blog />}></Route>
           <Route exact path='/shop' element={< Shop />}></Route>
           <Route exact path='/notification' element={< Notifi />}></Route>
-          <Route exact path='/artupload' element={< Feed/>}></Route>
-          <Route exact path='/eventupload' element={< Evin/>}></Route>
-          <Route exact path='/blogupload' element={< Blin/>}></Route>
-          <Route exact path='/artsupload' element={< Shin/>}></Route>
-          <Route exact path='/blogload' element={< Blon/>}></Route>
+          <Route exact path='/artupload' element={< Feed />}></Route>
+          <Route exact path='/eventupload' element={< Evin />}></Route>
+          <Route exact path='/blogupload' element={< Blin />}></Route>
+          <Route exact path='/artsupload' element={< Shin />}></Route>
+          <Route exact path='/blogload' element={< Blon />}></Route>
 
         </Routes>
       </Router>
-      );
+    );
   }
 }
 

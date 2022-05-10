@@ -1,7 +1,7 @@
 import React from 'react';
 import './post.css'
-import likePost from '../../Asset/img/back3.jpg';
-import lovePost from '../../Asset/img/back2.jpg';
+import likePost from '../../asset/img/like.png';
+import lovePost from '../../asset/img/heart.png';
 import { onlineUsers } from '../../userdata';
 import { Po } from '../../posts';
 import Sidebar from '../../Components/sidebar/sidebar';

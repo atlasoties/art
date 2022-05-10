@@ -1,9 +1,9 @@
 import Sidebar from "../../Components/sidebar/sidebar";
 import Topbar from "../../Components/topbar/Topbar";
 import React from "react";
-import iconlocation from '../../Asset/img/location-pin-solid.svg'
-import iconbook from "../../Asset/img/bookmark-solid.svg"
-import iconcalander from '../../Asset/img/calendar-days-solid.svg'
+import iconlocation from '../../asset/img/location-pin-solid.svg'
+import iconbook from "../../asset/img/bookmark-solid.svg"
+import iconcalander from '../../asset/img/calendar-days-solid.svg'
 import './Event.css';
 import Online from "../../Components/online/Online";
 import { Ev } from "../../Event";
