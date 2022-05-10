@@ -32,8 +32,12 @@ class Login extends React.Component {
 													 	email,
 													 	password,
 													 	});
-		 localStorage.setItem("art-user",JSON.stringify(response.data.token));
-		 this.props.history.push("/");
+		 if(response.data.user){
+			 localStorage.setItem("art-user",JSON.stringify(response.data));
+			 window.location.href = "/user/feeds";
+		 }else{
+		 	alert(response.data)
+		 }
 		}catch(err){
 			console.log(err);
 		}
@@ -49,7 +53,7 @@ class Login extends React.Component {
 			<div id="tsparticles">
 				<main className="box">
 					<h2>Login</h2>
-					<form>
+					<div>
 						<div className="inputBox">
 							<label htmlFor="email">EMAIL</label>
 							<input type="email" name="email" id="email" onChange={this.handleForm} required />
@@ -68,7 +72,7 @@ class Login extends React.Component {
 							<input className="check1" type="checkbox" onChange={this.showPasswordHandler}/>
 						</div>
 						
-					</form>
+					</div>
 				</main>
 			</div>
 			</section>

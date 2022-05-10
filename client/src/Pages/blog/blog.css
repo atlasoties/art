@@ -1,0 +1,46 @@
+.Blog-class
+{
+    background-color: rgb(1, 1, 100);
+    padding-bottom: 10%;
+}
+.blog-card{
+    width: 70%;
+    height: 70%;
+    display:grid;
+    grid-template-columns: auto  ;
+    gap: 2%;
+    margin: 1% 0% 1% 15%;
+    border-radius: 30px;
+}
+.blog-element{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.blog-img
+{
+    width: 100%;
+    height:100%;
+    padding: 1% 1% 1% 1%;
+}
+.blog-pic
+{
+    width: 100%;
+    height: 100%;
+    padding: 1% 1% 1% 1%;
+}
+.blog-cont{
+    width: 100%;
+    height: 100%;
+    padding: 1% 1% 1% 1%;
+}
+@media screen and (max-width: 800px) {
+    .blog-element{
+        flex-direction: column;
+    }
+  }
+

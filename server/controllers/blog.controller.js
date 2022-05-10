@@ -7,15 +7,9 @@ class BlogActions {
 
 	async add(request, response) {
 
-		const { name, description, price, category } = request.body;
-		if (name && description && price && category) {
-			const Blog = await new Blog(
-				{
-					name,
-					description,
-					price,
-					category
-				});
+		const { content } = request.body;
+		if (content) {
+			const blog = await new Blog({content});
 				Blog.save();
 				response.json({
 					message: "Blog added successfully"

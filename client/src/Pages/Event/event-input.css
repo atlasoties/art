@@ -1,0 +1,11 @@
+.Evin-class{
+    height: 100vh;
+    background-color: rgb(1, 1, 100);
+    background-size: cover;
+    background-repeat:no-repeat;
+
+}
+.Evin-input{
+    position: absolute;
+    margin:10% 0% 0% 40%;
+}

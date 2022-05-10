@@ -17,7 +17,7 @@
 header {
     display: none;
 }
-button{
+.lo-continue{
     display: block;
 }
 
@@ -40,9 +40,9 @@ div p{
     cursor: pointer;
     text-align: right;
 }
-input:focus{
+/* input:focus{
     background-color: black;
-}
+} */
  #spec{
     margin-top: 25px;
 }

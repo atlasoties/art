@@ -1,0 +1,51 @@
+.chat-first-items{
+    float: left;
+}
+.chat-profile-img{
+
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 3px solid rgba(21,30,63,255);
+}
+
+.chat-first
+{   
+    background-color: rgba(21,30,63,255);
+    height:550px;
+}
+.chat-nav
+{
+ margin-top: 0%;
+ margin-left: 10%;
+}
+
+.chat-second-items
+{
+    margin-left: 10%;
+    padding-left: 1% 1% 1% 1%;
+    width: 25%;
+    height: 100%;
+
+}
+.chat-view
+{
+    height: 93%;
+    width: 65%;
+    background-color: white;
+    float: right;
+    background-color: white;
+
+}
+.writing-chat{
+    margin-top: 70%;
+    margin-left: 25%;
+}
+@media screen and (max-width:750px) {
+    .chat-view{
+        visibility: hidden;
+    }
+    /* .chat-second-items{
+        
+    } */
+}

@@ -28,12 +28,13 @@ class Register extends React.Component {
 	onSubmitHandler = async ()=>{
 		try{
 			const {name,email,password,dob} = this.state;
-		    const data = await axios.post(registerApi,{
+		    const response = await axios.post(registerApi,{
 													 	name,
 													 	email,
 													 	password,
 													 	dob});
-		 this.props.history.push("/login");
+		    if(response.data.success)
+		 	window.location.href = "/login";
 		}catch(err){
 			console.log(err);
 		}
@@ -49,7 +50,7 @@ class Register extends React.Component {
 			<div id="tsparticles ">
 				<main className="box">
 					<h2>Create an account</h2>
-					<form noValidate>
+					<div >
 						<div className="inputBox">
 							<label htmlFor="name">NAME</label>
 							<input type="text" name="name" id="name"  onChange={this.handleForm} required />
@@ -69,6 +70,7 @@ class Register extends React.Component {
 								required />
 						</div>
 						<div>
+
 						<button onClick = {this.onSubmitHandler}>Continue</button>
 						</div>
 						<div>
@@ -77,7 +79,7 @@ class Register extends React.Component {
 							<input type="checkbox" onChange={this.showPasswordHandler}/>
 						</div>
 						
-					</form>
+					</div>
 				</main>
 			</div>
 			</section>
