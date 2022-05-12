@@ -1,8 +1,8 @@
-import pic1 from './asset/img/Back1.jpg';
-import pic2 from './asset/img/undraw_road_to_knowledge_dark.svg';
-import pic3 from './asset/img/black.jpg';
-import pic4 from './asset/img/back3.jpg';
-import pic5 from './asset/img/back2.jpg';
+import pic1 from './Asset/img/Back1.jpg';
+import pic2 from './Asset/img/undraw_road_to_knowledge_dark.svg';
+import pic3 from './Asset/img/black.jpg';
+import pic4 from './Asset/img/back3.jpg';
+import pic5 from './Asset/img/back2.jpg';
 // const txt='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, at!'
 export const Ev = [
     {

@@ -14,8 +14,6 @@ import Evin from './Pages/Event/event-input';
 import Blin from './Pages/blog/blog-input';
 import Shin from './Pages/shop/shop-input';
 import Blon from './Pages/blog/blog-onclick';
-import Features from './Components/Features';
-import Features from './Components/Features';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -23,7 +21,7 @@ class App extends React.Component {
     return (
       <Router>
         <Routes>
-          <Route exact path='/' element={< Features />}></Route>
+          <Route exact path='/' element={< Home />}></Route>
           <Route exact path='/login' element={< Login />}></Route>
           <Route exact path='/register' element={< Register />}></Route>
           <Route exact path='/chat' element={< Chat />}></Route>

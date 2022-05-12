@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Chat.css";
 import Header1 from '../Components/header/chat-header';
-import profile1 from './../asset/img/christopher-campbell-rDEOVtE7vOs-unsplash.jpg';
+import profile1 from './../Asset/img/christopher-campbell-rDEOVtE7vOs-unsplash.jpg';
 import Cuser from '../Components/active-chat-users/active-chat-users';
 class Chat extends React.Component {
     render() {
