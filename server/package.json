@@ -27,6 +27,7 @@
     "js-sha256": "^0.9.0",
     "jwt-then": "^1.0.1",
     "mongoose": "^6.1.3",
-    "socket.io": "^4.4.0"
+    "socket.io": "^4.4.0",
+    "validator": "^13.7.0"
   }
 }

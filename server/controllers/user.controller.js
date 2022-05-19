@@ -17,17 +17,22 @@ class UserActions{
 	
 			else if(password.length < 8) response.status(404).json("Password length must be equal to 8 characters or above");
 			else{
-					const user = await new User(
-						{
-						name,
-						email,
-						password:hash(password+process.env.SALT),
-						dob
-					});
-					user.save();
-					response.json({
-						message:"user registerd successfully"
-					});	
+					const userExists = await User.findOne({email})
+					if(!userExists){
+						const user = await new User(
+							{
+							name,
+							email,
+							password:hash(password+process.env.SALT),
+							dob
+						});
+						user.save();
+						response.json({
+							success:"user registerd successfully"
+						});	
+					}else{
+						response.status(404).json("User with provided email already exist");
+					}
 			}
 		}
 		else{
@@ -48,7 +53,8 @@ class UserActions{
 				const token = await jwt.sign({id:user.id},process.env.SECRET);
 				response.status(200).json({
 					message:"user logged in successfully",
-					token:token
+					token:token,
+					user
 				});
 			}else{
 				response.json("Your Credential does not match");
@@ -59,16 +65,41 @@ class UserActions{
 		}
 	}
 	
+	async logout(){
+
+	
+	}
 	async update (request, response){
-		const id = request.params.id;
-		User.findOneAndUpdate({id:id});
+		const id = request.user.id;
+		const user = await User.findById({id:id});
+		if(!user){
+			response.status(401).json("Not Found");
+		}
+
+		const updatedUser =await User.findOneAndUpdate(id,request.body,{new:true});
+				response.status(200).json(updatedUser);
+	
 	}
 	
 	async deletes(request, response){
-		const id = request.params.id;
-		await User.findById(id)
-			.then(item => item.remove().then(()=>response.status(200).json("Item Deleted Successfully")))
-			.catch(err=> response.status(404).json("The User doesn't Exist in the database"));
+		const id = request.user.id;
+		const user = await User.findById({id:id});
+		if(!user){
+			response.status(401).json("User Not Found");
+		}
+
+		await user.remove();
+		response.status(200).json("User Deleted Successfully");
+	}
+
+	async profile(request, response){
+		const id = request.user.id;
+		const { _id, name, email}= await User.findById(id)
+		response.status(200).json({
+			id:_id,
+			name,
+			email
+		});
 	}
 	
 	async show (request, response){

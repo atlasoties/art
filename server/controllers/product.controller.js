@@ -1,11 +1,17 @@
 const mongoose = require('mongoose');
 const hash = require('js-sha256');
 const Product = mongoose.model("Product");
+const User = mongoose.model("User");
 
 class ProductActions {
 
 
 	async add(request, response) {
+		
+		const user = await User.findById(request.user.id);
+		if(!user){
+			response.status(401).json("User not Found");
+		}
 
 		const { name, description, price, category } = request.body;
 		if (name && description && price && category) {
@@ -29,15 +35,41 @@ class ProductActions {
 
 
 	async update(request, response) {
+
 		const id = request.params.id;
-		Product.findOneAndUpdate({ id: id });
+		const product =await Product.findById({id:id});
+		if(!product){
+			response.status(401).json("Product Not Found");
+		}
+		const user = await User.findById(request.user.id);
+		if(!user){
+			response.status(401).json("User not Found");
+		}
+		if(product.owner.toString() !== user.id){
+			response.status(401).json("Unauthorized");
+		}
+		const {name,description,category,price} = request.body;
+			await Product.findOneAndUpdate(id,request.body,{new:true});
+			response.status(200).json("User Updated Succesfully");
 	}
 
 	async delete(request, response) {
-		const id = request.params.id;
-		await Product.findById(id)
-			.then(item => item.remove().then(() => response.status(200).json("Item Deleted Successfully")))
-			.catch(err => response.status(404).json("The product doesn't Exist in the database"));
+		const id = request.user.id;
+		const product =await Product.findById({id:id});
+		if(!product){
+			response.status(401).json("Product Not Found");
+		}
+		const user = await User.findById(request.user.id);
+		if(!user){
+			response.status(401).json("User not Found");
+		}
+		if(product.owner.toString() !== user.id){
+			response.status(401).json("Unauthorized");
+		}
+		await product.remove()
+		response.status(200).json("Product Deleted Succesfully");
+
+			
 	}
 
 	async show(request, response) {

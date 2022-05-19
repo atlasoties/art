@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const postSchema = new mongoose.Schema({
-	user: {
+	poster: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref:'User'
 	},
@@ -11,7 +11,6 @@ const postSchema = new mongoose.Schema({
 	
 	avatar: {
 		type: String,
-		required: "Category is required"
 	},
 	date:{
 		type:Date,
@@ -20,7 +19,7 @@ const postSchema = new mongoose.Schema({
 	likes: [
 	{
 		user: {
-			type: Schema.Types.ObjectId,
+			type: mongoose.Schema.Types.ObjectId,
 			ref:'User'
 		}
 	}
