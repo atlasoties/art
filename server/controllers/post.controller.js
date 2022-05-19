@@ -7,16 +7,17 @@ class PostActions {
 
 	async add(request, response) {
 
-		const { user,text } = request.body;
+		const user = await User.findById(request.user.id);
+		if(!user){
+			response.status(401).json("User not Found");
+		}
+		const { id,text } = request.body;
 		if (text) {
-			const post = await new Post(
-				{
-					user,
-					text
-				});
-				post.save();
+			const post = await new Post({id,text});
+				const newPost = post.save();
 				response.json({
-					message: "post added successfully"
+					message: "post added successfully",
+					newPost
 				});
 			}
 		else {
@@ -28,7 +29,20 @@ class PostActions {
 
 	async update(request, response) {
 		const id = request.params.id;
-		Post.findOneAndUpdate({ id: id });
+		const post = await Post.findById({id:id});
+		const user = await User.findById(request.user.id);
+
+		if(!post){
+			response.status(401).json("Post Not Found");
+		}
+		if(!user){
+			response.status(401).json("User not Found");
+		}
+		if(post.owner.toString() !== user.id){
+			response.status(401).json("Unauthorized");
+		}
+		const updatedPost = await Post.findOneAndUpdate({ id: id });
+		response.status(200).json(updatedPost);
 	}
 
 	async delete(request, response) {

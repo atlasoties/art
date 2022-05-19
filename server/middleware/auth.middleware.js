@@ -23,6 +23,19 @@ const protect = async (request, response, next) => {
 		}
 	}
 }
+
+
+
+const socketprotector = async (socket,next)=>{
+	try{
+		const token = socket.handshake.query.token;
+		const payload = await jwt.verify(token, process.env.SECRET);
+		socket.userId = payload.id;
+		next();
+	}catch(err){
+		console.log(err);
+	}
 }
 
-module.exports = { protect };
+
+module.exports = { protect,socketprotector };
