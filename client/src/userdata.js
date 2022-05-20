@@ -1,12 +1,12 @@
-import merke from './asset/img/merke.jpg';
-import lucy from './asset/img/christopher-campbell-rDEOVtE7vOs-unsplash.jpg';
-import mars from './asset/img/user2.jfif';
-import abel from './asset/img/user6.jfif';
-import maxime from './asset/img/user3.jfif';
-import samoa from './asset/img/user5.jpg';
-import linda from './asset/img/user1.jfif';
-import tedi from './asset/img/user7.jfif';
-import fekade from './asset/img/user8.jfif';
+import merke from './Asset/img/merke.jpg';
+import lucy from './Asset/img/christopher-campbell-rDEOVtE7vOs-unsplash.jpg';
+import mars from './Asset/img/user2.jfif';
+import abel from './Asset/img/user6.jfif';
+import maxime from './Asset/img/user3.jfif';
+import samoa from './Asset/img/user5.jpg';
+import linda from './Asset/img/user1.jfif';
+import tedi from './Asset/img/user7.jfif';
+import fekade from './Asset/img/user8.jfif';
 
 export const onlineUsers = [
     {

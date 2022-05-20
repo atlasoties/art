@@ -1,36 +1,71 @@
 import React from 'react';
 import "./Chat.css";
+import arrow from '../Asset/img/arrow-left-solid.svg'
 import Header1 from '../Components/header/chat-header';
-import profile1 from './../asset/img/christopher-campbell-rDEOVtE7vOs-unsplash.jpg';
-import Cuser from '../Components/active-chat-users/active-chat-users';
-class Chat extends React.Component {
-    render() {
-        return (
+import ChatView from '../Components/chat-view/chat-view';
+import { onlineUsers } from '../userdata';
+class Chat extends React.Component
+{
 
-            <div className="chat-first">
-
-                <div className="chat-first-items">
-                    <h3>pan art</h3>
-                    <div className="chat-profile">
-                        <img className='chat-profile-img' src={profile1} alt='user profile' />
-                    </div>
-                </div>
-                <div className="chat-nav">
-                    <Header1 />
-                </div>
-                <div className='chat-view'>
-                    <div className="writing-chat">
-                        <input type="text" />
-                    </div>
-                </div>
-                <div className="chat-second-items">
-                    <input className='search-user' type="search" placeholder='search user' />
-                    <Cuser />
-                </div>
-            </div>
-
-        );
+    constructor()
+    {
+        super();
+        this.state={
+        onlineUsers,
+        className:'chat-second-items',
+        cN:'chat-view',
     }
+
+    }
+   Chathandller=()=>{
+        this.setState({
+            className:'chat-second-change',
+            cN:'chat-view-change'
+        })
+    }
+    Phonehandller=()=>{
+        this.setState({
+            className:'chat-second-items',
+            cN:'chat-view',
+        })
+    }
+        render(){
+            return(
+                <div className="chat-first">
+                    <div className="chat-first-items">
+                    <Header1/>
+                         </div>
+                         
+                 <div className={this.state.className}>
+                 <input className='search-user' type="search" placeholder='search user' />
+            {
+         this.state.onlineUsers.map(onlineUser=>
+                 <div className="messages" onClick={this.Chathandller}>
+                     <div className="onlineUserImg">
+                    <img className="user-prof" src={onlineUser.uimg} alt={onlineUser.name} />
+                    </div>
+                <div className="chat-user-info">
+                <div className="user-name">
+                    {onlineUser.name}
+                </div>
+                <div className="user-message">
+                    {onlineUser.message}
+                    </div>
+            </div>
+            </div>
+                    
+             )}
+                      </div>
+                      
+                      <div className={this.state.cN}>
+                      <div className='arrow-class' >
+                          <img onClick={this.Phonehandller} className='arrow' src={arrow} alt='' />
+                </div>
+                        <ChatView />
+                    </div>
+                    </div>
+            );
+        }
 
 }
 export default Chat;
