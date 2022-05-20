@@ -1,9 +1,9 @@
-import pic1 from './asset/img/nathan-dumlao-nZ_8AmgBGjM-unsplash.jpg'
-import pic2 from './asset/img/pascal-bernardon-67sx2qVE048-unsplash.jpg'
-import pic3 from './asset/img/a-o-GfQEdpIkkuw-unsplash.jpg'
-import pic4 from './asset/img/damla-ozkan-eCLlXQp_GSg-unsplash.jpg'
-import pic5 from './asset/img/dan-farrell-fT49QnFucQ8-unsplash.jpg'
-import pic6 from './asset/img/bekky-bekks-h1yElj9Dv9c-unsplash.jpg'
+import pic1 from './Asset/img/nathan-dumlao-nZ_8AmgBGjM-unsplash.jpg'
+import pic2 from './Asset/img/pascal-bernardon-67sx2qVE048-unsplash.jpg'
+import pic3 from './Asset/img/a-o-GfQEdpIkkuw-unsplash.jpg'
+import pic4 from './Asset/img/damla-ozkan-eCLlXQp_GSg-unsplash.jpg'
+import pic5 from './Asset/img/dan-farrell-fT49QnFucQ8-unsplash.jpg'
+import pic6 from './Asset/img/bekky-bekks-h1yElj9Dv9c-unsplash.jpg'
 const txt = "Lorem ipsum dolor sit amet."
 export const Sh = [
     {

@@ -1,11 +1,9 @@
 import Sidebar from "../../Components/sidebar/sidebar";
-import Topbar from "../../Components/topbar/Topbar";
 import React from "react";
-import iconlocation from '../../asset/img/location-pin-solid.svg'
-import iconbook from "../../asset/img/bookmark-solid.svg"
-import iconcalander from '../../asset/img/calendar-days-solid.svg'
+import iconlocation from '../../Asset/img/location-pin-solid.svg'
+import iconbook from "../../Asset/img/bookmark-solid.svg"
+import iconcalander from '../../Asset/img/calendar-days-solid.svg'
 import './Event.css';
-import Online from "../../Components/online/Online";
 import { Ev } from "../../Event";
 const txt = '“Big Sean will at the hmv Underground at 333 Yonge Street on March 24, 2015 at 5:00 PM for an exclusive FAN MEET & GREET. Space is limited to the first 300 fans on a first come first served basis (as per the event protocol)”'
 
