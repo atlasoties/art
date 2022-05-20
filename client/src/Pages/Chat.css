@@ -1,5 +1,12 @@
+.chat-first{
+    display: flex;
+    flex-direction: row;
+  
+}
 .chat-first-items{
-    float: left;
+background-color:white;
+width: 10%;
+height: 100vh;
 }
 .chat-profile-img{
 
@@ -9,43 +16,92 @@
     border: 3px solid rgba(21,30,63,255);
 }
 
-.chat-first
+.chat-second-items
 {   
+    width: 100%;
+    height: 100vh;
+    margin-left: 0%;
     background-color: rgba(21,30,63,255);
-    height:550px;
+    overflow-x: hidden;
+    overflow-y: auto;
+} 
+.chat-second-change{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(21,30,63,255);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
-.chat-nav
-{
- margin-top: 0%;
- margin-left: 10%;
+.search-user{
+    margin-left: 2%;
+    width:70%;
+    height: 5%;
+    border-radius: 10px;
+}
+.messages {
+    display: flex;
+    flex-direction: row;
+    padding: 0.4%;
+
 }
 
-.chat-second-items
-{
-    margin-left: 10%;
-    padding-left: 1% 1% 1% 1%;
-    width: 25%;
-    height: 100%;
+.messages:hover {
+    background-color: cornflowerblue;
+}
+
+.user-name {
+    font-size: large;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.user-message {
+    font-weight: bold;
+}
+
+.user-prof {
+    width: 3rem;
+    height:3rem;
+    border-radius: 50%;
+    border: 3px solid rgba(21, 30, 63, 255);
 
 }
 .chat-view
 {
-    height: 93%;
-    width: 65%;
-    background-color: white;
-    float: right;
-    background-color: white;
-
+    
+    width: 100%;
+    height: 100vh;
+    background-image:url('../Asset/img/dark-blue-liquid-stain-pattern-n65b25baujpa1sv0.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 0%;
 }
-.writing-chat{
-    margin-top: 70%;
-    margin-left: 25%;
+.chat-view-change{
+  
+    width: 100%;
+    height: 100vh;
+    background-image:url('../Asset/img/dark-blue-liquid-stain-pattern-n65b25baujpa1sv0.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-@media screen and (max-width:750px) {
-    .chat-view{
-        visibility: hidden;
-    }
-    /* .chat-second-items{
-        
-    } */
+.arrow-class{
+    position: absolute;
+    top: 0%;
+    visibility:hidden;
+}
+.arrow{
+    width: 2rem;
+    height: 2rem;
+}
+@media only screen and (max-width:600px) {
+   .chat-view{
+      width: 0%;
+   }
+   .chat-second-change{
+       visibility: hidden;
+       width: 0%;
+   }
+   .arrow-class{
+       visibility: visible;
+   }
 }

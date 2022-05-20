@@ -1,0 +1,65 @@
+.chat-view-class
+{
+    height:100%;
+    width: 100%;
+    
+}
+.textarea
+{
+   position: fixed;
+    bottom:0%;
+    right: 12%;
+    width: 30%;
+    height: 5%;
+    resize: none;
+}
+
+.file{
+    position: fixed;
+    bottom: 0%;
+    left: 53%;
+    border: 3px solid black;
+    width:5%;
+    height: 5%;
+    background-color:rgba(21,30,63,255);
+}
+.chat-send{
+    position: fixed;
+    bottom: 0;
+    right: 0%;
+    height: 5%;
+    width: 10%;
+    font-size: 1.5rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color:rgba(21,30,63,255);
+}
+.chat-user-header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(21,30,63,255);
+}
+.up{
+    width:3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+.user-pic{
+    margin-left: 8%;
+}
+@media only screen and (max-width:600px) {
+    .textarea{
+        width: 60%;
+        right: 20%;
+    }
+    .chat-send
+    {
+        width: 15%;
+    } 
+    .file
+    {
+        left:9%;
+        width: 10%;
+    }   
+}

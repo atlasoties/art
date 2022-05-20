@@ -60,9 +60,6 @@ class Posts extends React.Component {
             <div className="post">
 
                 <Sidebar />
-
-                {/* <Topbar/> */}
-
                 <Online />
 
                 <div className="post-per">
