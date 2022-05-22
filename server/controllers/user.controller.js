@@ -49,26 +49,32 @@ class UserActions{
 	// @acces Public
 	 async login (request ,response) {
 		const {email,password} = request.body;
-		if(email && password){
+		try{
+				if(email && password){
 
-			const user = await User.findOne({
-				email:email,
-				password: hash(password+process.env.SALT), 
-			});
-			if(user){
-				const token = await jwt.sign({id:user.id},process.env.SECRET);
-				const {password,updatedAt,createdAt, ...other} = user._doc;
-				response.status(200).json({
-					message:"user logged in successfully",
-					token:token,
-					other
-				});
-			}else{
-				response.json("Your Credential does not match");
-			}
+					const user = await User.findOne({
+						email:email,
+						password: hash(password+process.env.SALT), 
+					});
+					console.log(user);
+					if(user){
+						const token = await jwt.sign({id:user.id},process.env.SECRET);
+						const {password,updatedAt,createdAt, ...other} = user._doc;
+						response.status(200).json({
+							message:"user logged in successfully",
+							token:token,
+							other
+						});
+					}else{
+						response.json("Your Credential does not match");
+					}
+				}
+				else{
+					response.json("All fields should be filled in");
+				}
 		}
-		else{
-			response.json("All fields should be filled in");
+		catch(err){
+			response.status(500).json(err);
 		}
 	}
 	
@@ -78,12 +84,14 @@ class UserActions{
 	async getUser(request,response){
 		const id  = request.user.id;
 		try{
-			const user =  await User.findById(_id:id);
+			const user =  await User.findById({_id:id});
 			if(!user){
 				response.status(404).json("User not found");
 			}
-			const {password, ..other} = user._doc;
+			const {password, ...other} = user._doc;
 			response.status(200).json(other);
+		}catch(err){
+			response.status(500).json(err);
 		}
 		
 	}
@@ -100,7 +108,7 @@ class UserActions{
 
 				const updatedUser = await User.findOneAndUpdate(id,{$set:req.body});
 				response.status(200).json(updatedUser);
-			}
+	}
 		
 	
 	// @route user/delete
@@ -136,10 +144,12 @@ class UserActions{
 
 			if(id !== paramsId){
 				try{
-					const userToFollow = await User.findById({id});
-					const userToBeFollowed = await User.findById({paramsId});
+					const userToFollow = await User.findById({_id:id});
+					const userToBeFollowed = await User.findById(paramsId);
+
 					if(userToFollow && userToBeFollowed){
-						if(!userToBeFollow.followers.includes(userToFollow._id)){
+						console.log(userToBeFollowed)
+						if(!userToBeFollowed.followers.includes(userToFollow._id)){
 							await userToBeFollowed.updateOne({$push:{followers:id}});
 							await userToFollow.updateOne({$push:{following:paramsId}});
 							response.status(200).json("User has been followed");
@@ -149,7 +159,7 @@ class UserActions{
 					}
 				}
 				catch(err){
-					response.status(500).json(err);
+					response.status(500).json(err.message);
 				}
 			}else{
 				response.status(403).json("You can not follow yourself");

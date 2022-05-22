@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const postSchema = new mongoose.Schema({
 	poster: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref:'User'
+		ref:'User',
+		required:true
 	},
 	text: {
 		type: String,
@@ -19,7 +20,7 @@ const postSchema = new mongoose.Schema({
 	likes:{
 		type:Array,
 		default:[]
-	}
+	},
 	comments:[
 	{
 		user: {

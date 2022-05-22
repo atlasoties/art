@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const hash = require('js-sha256');
-const Post = mongoose.model("Post");
 const User = mongoose.model("User");
+const Post = require("../models/post.model");
 class PostActions {
 
 	// @route post/add
@@ -13,14 +13,19 @@ class PostActions {
 		if(!user){
 			response.status(401).json("User not Found");
 		}
-		const {text } = request.body;
+		const {text ,...other} = request.body;
 		if (text) {
-			const post = await new Post({$set:request.body});
-				const newPost = post.save();
-				response.json({
+			const post = await new Post({poster:user._id,text});
+				if(post){
+					const newPost = await post.save();
+					response.json({
 					message: "post added successfully",
 					newPost
-				});
+					});
+				}else{
+					response.status(401).json("Empty")
+				}
+				
 			}
 		else {
 			response.status(400).json("All fields should be filled in")
@@ -123,7 +128,10 @@ class PostActions {
 			response.status(500).json(err);
 		}
 	}
-
+	async show(request, response) {
+		await Post.find()
+		.then( post =>{ response.status(200).json(post)})
+	}
 
 }
 

@@ -38,4 +38,4 @@ const socketprotector = async (socket,next)=>{
 }
 
 
-module.exports = { protect,socketprotector };
+module.exports = { Authenticate,socketprotector };
