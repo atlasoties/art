@@ -4,9 +4,9 @@ const User = mongoose.model("User");
 const jwt = require("jwt-then");
 class UserActions{
 	
-	//@Method POST user/register
-	//@Access Public
-	//@
+	// @route user/register
+	// @desc  Register User
+	// @acces Public
  async create (request ,response) {
 
 	const {name , email , password, dob} = request.body;
@@ -41,8 +41,12 @@ class UserActions{
 			response.status(400).json("All fields should be filled in")
 		}
 	}
-	
-	
+
+
+
+	// @route user/login
+	// @desc  Login User
+	// @acces Public
 	 async login (request ,response) {
 		const {email,password} = request.body;
 		if(email && password){
@@ -68,23 +72,27 @@ class UserActions{
 		}
 	}
 	
+	// @route user/get
+	// @desc  Get a User
+	// @acces Private
 	async getUser(request,response){
-		const id = request.user.id;
-		if(id === request.params.id){
-			const user = await User.findById({id});
+		const id  = request.user.id;
+		try{
+			const user =  await User.findById(_id:id);
 			if(!user){
-				response.status(401).json("Not Found");
+				response.status(404).json("User not found");
 			}
-			response.status(200).json()
-		}else{
-			response.status(401).json("Forbidden");
-
+			const {password, ..other} = user._doc;
+			response.status(200).json(other);
 		}
+		
 	}
+
+	// @route user/update
+	// @desc  update a User
+	// @acces Private
 	async update (request, response){
 		const id = request.user.id;
-		try{
-			if(id === request.params.id){
 				const user = await User.findById({id});
 				if(!user){
 					response.status(401).json("Not Found");
@@ -93,11 +101,11 @@ class UserActions{
 				const updatedUser = await User.findOneAndUpdate(id,{$set:req.body});
 				response.status(200).json(updatedUser);
 			}
-		}catch(err){
-			response.status(500).json(err);
-		}
-	}
+		
 	
+	// @route user/delete
+	// @desc  delete a User
+	// @acces Private
 	async deletes(request, response){
 		const id = request.user.id;
 		const user = await User.findById({id});
@@ -119,7 +127,9 @@ class UserActions{
 		});
 	}
 	
-
+	// @route user/:id/follow
+	// @desc  Follow a User
+	// @acces Private
 	async followUser(request,response){
 		const id = request.user.id;
 		const paramsId = request.params.id;
@@ -146,32 +156,34 @@ class UserActions{
 			}
 		}
 		
+	// @route user/:id/unfollow
+	// @desc  Unfollow a User
+	// @acces Private
+	async unfollowUser(request,response){
+			const id = request.user.id;
+			const paramsId = request.params.id;
 
-async unfollowUser(request,response){
-		const id = request.user.id;
-		const paramsId = request.params.id;
-
-			if(id == paramsId){
-				try{
-					const userToFollow = await User.findById({id});
-					const userToBeFollowed = await User.findById({paramsId});
-					if(userToFollow && userToBeFollowed){
-						if(!userToBeFollow.followers.includes(userToFollow._id)){
-							await userToBeFollowed.updateOne({$pull:{followers:id}});
-							await userToFollow.updateOne({$pull:{following:paramsId}});
-							response.status(200).json("User has been unfollowed");
-						}else{
-							response.status(401).json("You are not following this user");
+				if(id == paramsId){
+					try{
+						const userToFollow = await User.findById({id});
+						const userToBeFollowed = await User.findById({paramsId});
+						if(userToFollow && userToBeFollowed){
+							if(!userToBeFollow.followers.includes(userToFollow._id)){
+								await userToBeFollowed.updateOne({$pull:{followers:id}});
+								await userToFollow.updateOne({$pull:{following:paramsId}});
+								response.status(200).json("User has been unfollowed");
+							}else{
+								response.status(401).json("You are not following this user");
+							}
 						}
 					}
+					catch(err){
+						response.status(500).json(err);
+					}
+				}else{
+					response.status(403).json("You can not unfollow yourself");
 				}
-				catch(err){
-					response.status(500).json(err);
-				}
-			}else{
-				response.status(403).json("You can not unfollow yourself");
 			}
-		}
 
 	async show (request, response){
 		await User.find()
