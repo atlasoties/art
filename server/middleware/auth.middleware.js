@@ -1,6 +1,6 @@
 const jwt = require("jwt-then");
 const User = require('../models/user.model');
-const protect = async (request, response, next) => {
+const Authenticate = async (request, response, next) => {
 	let token;
 	if (request.headers.authorization && request.headers.authorization.startsWith('Bearer')) {
 		try {

@@ -4,7 +4,9 @@ const User = mongoose.model("User");
 const jwt = require("jwt-then");
 class UserActions{
 	
-
+	//@Method POST user/register
+	//@Access Public
+	//@
  async create (request ,response) {
 
 	const {name , email , password, dob} = request.body;
@@ -51,10 +53,11 @@ class UserActions{
 			});
 			if(user){
 				const token = await jwt.sign({id:user.id},process.env.SECRET);
+				const {password,updatedAt,createdAt, ...other} = user._doc;
 				response.status(200).json({
 					message:"user logged in successfully",
 					token:token,
-					user
+					other
 				});
 			}else{
 				response.json("Your Credential does not match");
@@ -65,25 +68,39 @@ class UserActions{
 		}
 	}
 	
-	async logout(){
+	async getUser(request,response){
+		const id = request.user.id;
+		if(id === request.params.id){
+			const user = await User.findById({id});
+			if(!user){
+				response.status(401).json("Not Found");
+			}
+			response.status(200).json()
+		}else{
+			response.status(401).json("Forbidden");
 
-	
+		}
 	}
 	async update (request, response){
 		const id = request.user.id;
-		const user = await User.findById({id:id});
-		if(!user){
-			response.status(401).json("Not Found");
-		}
+		try{
+			if(id === request.params.id){
+				const user = await User.findById({id});
+				if(!user){
+					response.status(401).json("Not Found");
+				}
 
-		const updatedUser =await User.findOneAndUpdate(id,request.body,{new:true});
+				const updatedUser = await User.findOneAndUpdate(id,{$set:req.body});
 				response.status(200).json(updatedUser);
-	
+			}
+		}catch(err){
+			response.status(500).json(err);
+		}
 	}
 	
 	async deletes(request, response){
 		const id = request.user.id;
-		const user = await User.findById({id:id});
+		const user = await User.findById({id});
 		if(!user){
 			response.status(401).json("User Not Found");
 		}
@@ -102,6 +119,60 @@ class UserActions{
 		});
 	}
 	
+
+	async followUser(request,response){
+		const id = request.user.id;
+		const paramsId = request.params.id;
+
+			if(id !== paramsId){
+				try{
+					const userToFollow = await User.findById({id});
+					const userToBeFollowed = await User.findById({paramsId});
+					if(userToFollow && userToBeFollowed){
+						if(!userToBeFollow.followers.includes(userToFollow._id)){
+							await userToBeFollowed.updateOne({$push:{followers:id}});
+							await userToFollow.updateOne({$push:{following:paramsId}});
+							response.status(200).json("User has been followed");
+						}else{
+							response.status(401).json("You are already following this user");
+						}
+					}
+				}
+				catch(err){
+					response.status(500).json(err);
+				}
+			}else{
+				response.status(403).json("You can not follow yourself");
+			}
+		}
+		
+
+async unfollowUser(request,response){
+		const id = request.user.id;
+		const paramsId = request.params.id;
+
+			if(id == paramsId){
+				try{
+					const userToFollow = await User.findById({id});
+					const userToBeFollowed = await User.findById({paramsId});
+					if(userToFollow && userToBeFollowed){
+						if(!userToBeFollow.followers.includes(userToFollow._id)){
+							await userToBeFollowed.updateOne({$pull:{followers:id}});
+							await userToFollow.updateOne({$pull:{following:paramsId}});
+							response.status(200).json("User has been unfollowed");
+						}else{
+							response.status(401).json("You are not following this user");
+						}
+					}
+				}
+				catch(err){
+					response.status(500).json(err);
+				}
+			}else{
+				response.status(403).json("You can not unfollow yourself");
+			}
+		}
+
 	async show (request, response){
 		await User.find()
 				  .sort({date:-1})

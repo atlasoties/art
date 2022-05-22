@@ -27,6 +27,7 @@ require(path.resolve(__dirname, "models", "user.model"));
 require(path.resolve(__dirname, "models", "product.model"));
 /******/
 app.use('/user', require(path.resolve(__dirname, "routes", "user.route")));
+app.use('/post', require(path.resolve(__dirname, "routes", "post.route")));
 app.use('/product', require(path.resolve(__dirname, "routes", "product.route")));
 
 const server = app.listen(PORT, () => {

@@ -11,9 +11,9 @@ class PostActions {
 		if(!user){
 			response.status(401).json("User not Found");
 		}
-		const { id,text } = request.body;
+		const {text } = request.body;
 		if (text) {
-			const post = await new Post({id,text});
+			const post = await new Post(request.body);
 				const newPost = post.save();
 				response.json({
 					message: "post added successfully",
@@ -45,7 +45,7 @@ class PostActions {
 		response.status(200).json(updatedPost);
 	}
 
-	async delete(request, response) {
+	async deletes(request, response) {
 		const id = request.params.id;
 		await Post.findById(id)
 			.then(item => item.remove().then(() => response.status(200).json("Item Deleted Successfully")))
