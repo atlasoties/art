@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const hash = require('js-sha256');
 const User = mongoose.model("User");
-const Post = require("../models/post.model");
+const Post = mongoose.model("Post");
 class PostActions {
 
 	// @route post/add
@@ -101,7 +101,28 @@ class PostActions {
 		}
 
 	}
-
+	async comment(request,response){
+		const {text} = request.body;
+		const postId = request.params.id;
+		const commenter = await User.findById(request.user.id);
+		const post = await Post.findById(postId);
+		if(!commenter || !post){
+			response.status(404).json("User Not Found");
+		}
+		try{
+			const commentdata = {
+									user:commenter._id,
+									text:text,
+									avatar:commenter.avatarImage,
+									name:commenter.name
+									};
+		
+			await post.updateOne({$push:{comments:commentdata}},{new:true});
+			response.status(200).json(post)
+		}catch(error){
+			response.status(500).json(error.message);
+		}
+	}
 
 	async getPost(request, response) {
 		try{

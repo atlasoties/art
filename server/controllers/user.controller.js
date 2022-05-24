@@ -194,6 +194,18 @@ class UserActions{
 					response.status(403).json("You can not unfollow yourself");
 				}
 			}
+	async searchUser(request,response){
+		const keyword =request.query.search ? {
+			$or:[
+					{name:{$regex:request.query.search, $options:'i'}},
+					{email:{$regex:request.query.search, $options:'i'}}
+				]
+			}:{};
+
+		const users  = await User.find(keyword).find({_id:{$ne:request.user.id}})
+		response.status(200).json(users);
+	}
+
 
 	async show (request, response){
 		await User.find()
