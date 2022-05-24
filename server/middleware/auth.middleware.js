@@ -2,6 +2,8 @@ const jwt = require("jwt-then");
 const User = require('../models/user.model');
 const Authenticate = async (request, response, next) => {
 	let token;
+			//check if token provided in the header
+
 	if (request.headers.authorization && request.headers.authorization.startsWith('Bearer')) {
 		try {
 			token = request.headers.authorization.split(" ")[1];
@@ -13,14 +15,14 @@ const Authenticate = async (request, response, next) => {
 			request.user = await User.findById(payload.id).select('-password');
 			next();
 		} catch (error) {
-			response.status(401)
-			throw new Error("Forbidden Access of Resource")
+			response.status(401).json("Forbidden Access of Resource or "+error.message)
 		}
 		if (!token) {
-			response.status(401)
-			throw new Error("Not Authorized, No Token")
-
+			response.status(401).json("Not Authorized, No Token")
 		}
+	}
+	else{
+		response.status(404).json("Authorization Headers Not Supplied")
 	}
 }
 

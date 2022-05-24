@@ -1,17 +1,17 @@
-const mongosse = require("mongosse");
+const mongoose = require("mongoose");
 const blogSchema = new mongoose.Schema({
 	content:{
 		type:String,
 		required:true
 	},
 	author:{
-		user: mongoose.Schema.Types.ObjectId,
-		ref:"User"
+		type: mongoose.Schema.Types.ObjectId,
+		ref:'User'
 	},
 	likes: [
 		{
 			user: {
-				type: Schema.Types.ObjectId,
+				type: mongoose.Schema.Types.ObjectId,
 				ref:'User'
 			}
 		}
@@ -19,7 +19,7 @@ const blogSchema = new mongoose.Schema({
 	comments:[
 		{
 			user: {
-				type: Schema.Types.ObjectId,
+				type: mongoose.Schema.Types.ObjectId,
 				ref:'User'
 			},
 			text:{
