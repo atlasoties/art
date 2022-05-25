@@ -15,16 +15,14 @@
 }
 
 .posters-elements {
+    width: 50%;
     display: flex;
     flex-direction: column;
-    /* float: left; */
     font-size: 1rem;
     text-transform: capitalize;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    /* width: 100%;
-    height: 100%; */
     color: rgba(21, 30, 63, 255);
-    margin: 0% 0% 5% 35%;
+    margin: 0% 0% 2% 35%;
     padding: 1% 2% 2% 2%;
     background-color: white;
     border: 3px solid rgba(21, 30, 63, 0);
@@ -84,17 +82,37 @@
 }
 .comment-section{
     visibility: hidden;
+    width: 0%;
+    height: 0%;
 }
 .comment-change{
     visibility: visible;
+    margin-left:35%;
+    margin-bottom: 1%;
 }
-.plus{
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50% ;
-    position:fixed;
-    top:3%;
-    left:20%;
+.comment-text
+{
+    width:0vw;
+    height: 0vh;
+    resize:none;
+}
+.comment-text-change
+{
+    width:40vw;
+    height: 5vh;
+    resize:none;
+}
+.add-com{
+    position: fixed;
+    left: 75%;
+    bottom: 0%;
+}
+.btn-cmt{
+    font-size: 1rem;
+    padding: 1%;
+    margin: 1%;
+    margin-top: 0%;
+    background-color: azure;
 }
 @media screen and (max-width: 800px) {
     .post-per {
