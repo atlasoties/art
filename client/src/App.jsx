@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import Chat from './Pages/Chat';
 import Posts from './Pages/post/post';
 import Event from './Pages/Event/Event';
+import Profile from './Pages/UserProfile'
 import Blog from './Pages/blog/blog';
 import Shop from './Pages/shop/shop';
 import Notifi from './Pages/notification/notification';
@@ -14,6 +15,7 @@ import Evin from './Pages/Event/event-input';
 import Blin from './Pages/blog/blog-input';
 import Shin from './Pages/shop/shop-input';
 import Blon from './Pages/blog/blog-onclick';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -36,7 +38,7 @@ class App extends React.Component {
           <Route exact path='/blogupload' element={< Blin />}></Route>
           <Route exact path='/artsupload' element={< Shin />}></Route>
           <Route exact path='/blogload' element={< Blon />}></Route>
-
+          <Route exact path='/profile' element={< Profile />}></Route>
         </Routes>
       </Router>
     );

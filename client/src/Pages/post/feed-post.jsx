@@ -6,11 +6,14 @@ class Feed extends React.Component{
         return(
             <div className="feed-class">
                 <div className="feed-input">
-                <h3>Choose your art:</h3>
-                    <input type="file"id="1" name="feeds"accept="image/png, image/jpeg"/>
-                    <h3>Add your discription:</h3>      <input type='text'id='2' name='feed-discription' /><br/> <br/>
-                    <button type='submit'>submit</button>
-                      </div>
+                    <h1><strong> Share us </strong>your creative art work</h1>
+                <div className="add-disc">
+                   <div>Add your discription here</div> 
+                    <textarea className='art-disc' name="art-disc" id="" cols="60" rows="3"></textarea>
+                </div>
+                <input type="file" name="file" id="file" className="myclass" />
+<label for="file">Choose a file</label>
+            </div>
             </div>
         );
     }
