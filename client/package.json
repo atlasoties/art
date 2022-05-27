@@ -9,6 +9,7 @@
     "axios": "^0.26.0",
     "bootstrap": "^5.1.3",
     "jwt-then": "^1.0.1",
+    "mdb-ui-kit": "^4.1.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.3.1",
     "react-dom": "^17.0.2",

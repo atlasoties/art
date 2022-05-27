@@ -1,9 +1,8 @@
 import React from 'react';
 import './post.css'
+import Addicon from '../../Components/add-icons/Add-icon';
 import likePost from '../../Asset/img/like.png';
 import lovePost from '../../Asset/img/heart.png';
-import { Link } from 'react-router-dom';
-import plus from '../../Asset/img/plus.png'
 import { onlineUsers } from '../../userdata';
 import { Po } from '../../posts';
 import Sidebar from '../../Components/sidebar/sidebar';
@@ -18,6 +17,7 @@ class Posts extends React.Component {
             count: 0,
             className:'comment-section',
             commentCounter:0,
+            classt:'comment-text'
         };
 
     }
@@ -40,11 +40,14 @@ class Posts extends React.Component {
       
               if(this.state.className==='comment-section')
               {   this.setState(
-                  {  className:'comment-change'}
+                  {  className:'comment-change',
+                    classt:'comment-text-change'}
               )}
               else{
                   this.setState(
-                      {className:'comment-section'}
+                      {className:'comment-section',
+                      classt:'comment-text'
+                    }
                   )
               }
        }
@@ -53,18 +56,20 @@ class Posts extends React.Component {
       
            (this.setState({
                commentCounter:this.state.commentCounter+1,
-              className:'comment-section'}))
+              className:'comment-section',
+            classt:'comment-text'}))
        }
     render() {
         return (
             <div className="post">
-
                 <Sidebar />
                 <Online />
-
+              <div className="add-com">
+            <Addicon/>
+         </div>
                 <div className="post-per">
-                   <Link to='/artupload'><img className='plus' src={plus} alt="" /></Link>
                     {this.state.a3.map(now =>
+                    <>
                         <div className='posters-elements' >
                             <div className='post-info'>
                                 <img className='post-user-profile' src={now.uimg} alt={now.name} />
@@ -77,26 +82,23 @@ class Posts extends React.Component {
                             <div className="l-post"onClick={this.handleClick}>
                                 <div className="li-post"> <img className='like-post' src={likePost} alt="like" /></div>
                                 <div className="lo-post"> <img className='love-post' src={lovePost} alt="love" /></div>
-                                <span className="postLikeCounter"> {this.state.count}people like it</span>
+                                <span className="postLikeCounter"> {this.state.count}likes</span>
 
                             </div>
                             <hr />
                             <div className="li-co-sh">
-                                <div className="like-bo"onClick={this.handleClick}>
-                                 {this.state.count}   Like
-                                </div>
+                                
                                 <div className="comment-bo"onClick={this.commentController}>
                                     {this.state.commentCounter}Comment
                                 </div>
-                                <div className="share-bo">
-                                    Share
-                                </div>
+                            
                             </div>
-                <div className={this.state.className}>
-              <input type='text' />
-              <button  onClick={this.commentSubmitController} >comment</button>  
-              </div>
+         
                         </div>
+                               <div className={this.state.className}>
+                        <textarea className={this.state.classt}></textarea>
+                               <button className='btn-cmt'  onClick={this.commentSubmitController} >Comment</button>  
+                               </div></>
                     )}
                 </div>
             </div>
