@@ -31,6 +31,7 @@
 
 .profileName{
     font-size: 24px;
+    text-transform: capitalize;
 }
 
 .profilebio{
@@ -64,9 +65,23 @@
     justify-content: center;
     margin: auto;
 }
-.buttons
+.profile-buttons
 {
     display: flex;
-    justify-content: center;
-    padding: auto;
+    justify-content: space-evenly;
+    padding: 5%;
+    height: 50%;
+}
+.btn-follow{
+    width:10%;
+    height: 25%;  
+}
+.btn-chat{
+    width:10%;
+    height: 25%;} 
+.userbutton{
+    visibility: hidden;
+}
+.hideus{
+    visibility: hidden;
 }

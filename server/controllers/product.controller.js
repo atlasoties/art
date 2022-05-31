@@ -53,17 +53,18 @@ class ProductActions {
 			response.status(200).json("User Updated Succesfully");
 	}
 
-	async delete(request, response) {
+	async deletes(request, response) {
+		const paramsId = request.params.id;
 		const id = request.user.id;
-		const product =await Product.findById({id:id});
+		const product =await Product.findById({_id:paramsId});
 		if(!product){
 			response.status(401).json("Product Not Found");
 		}
-		const user = await User.findById(request.user.id);
+		const user = await User.findById({_id:id});
 		if(!user){
 			response.status(401).json("User not Found");
 		}
-		if(product.owner.toString() !== user.id){
+		if(product.owner.toString() !== user._id){
 			response.status(401).json("Unauthorized");
 		}
 		await product.remove()

@@ -1,4 +1,5 @@
 import React from 'react';
+import * as mdb from 'mdb-ui-kit';
 import "./Chat.css";
 import arrow from '../Asset/img/arrow-left-solid.svg'
 import Header1 from '../Components/header/chat-header';
