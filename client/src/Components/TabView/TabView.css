@@ -1,0 +1,26 @@
+.bg-dark-blue {
+    background-color: rgb(1, 1, 100);
+    color: white;
+    outline: none;
+}
+
+
+.hover-effect {
+    background-color: rgb(35, 35, 161);
+}
+
+.hover-effect:hover {
+    background-color: rgb(35, 35, 161);
+    color: black !important;
+    outline: none;
+}
+
+.icon-color {
+    margin-top: 4px;
+    color: rgb(9, 138, 231);
+}
+
+.fixed {
+
+    margin: 10px;
+}

@@ -1,12 +1,10 @@
-
-
-html{
+html {
 
 	overflow-x: hidden;
 	overflow-y: auto;
 }
 
-*{
+* {
 
 	box-sizing: border-box;
 	padding: 0;
@@ -17,7 +15,7 @@ html{
 
 
 
-section{
+section {
 	font-family: 'Recursive', cursive;
 	width: 100%;
 	height: 100%;
@@ -42,8 +40,9 @@ section{
 
 .heading {
 
-	background-color: #ffffff;
+	background-color: rgb(1, 1, 100);
 	background-image: url(../Asset/img/illustration-g4d721afda_1920.jpg);
+	height: 100vh;
 
 	top: 80%;
 	display: block;
@@ -52,19 +51,19 @@ section{
 	color: black;
 }
 
-.fortitles{
+.fortitles {
 	padding-top: 10%;
 	text-align: center;
 }
-.forlinks
-{	
+
+.forlinks {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	margin-left: 40%;
 	margin-right: 40%;
 	padding-bottom: 15%;
-  }
+}
 
 .fortitles {
 	padding-top: 10%;

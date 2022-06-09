@@ -1,0 +1,40 @@
+ .mb-3 {
+     width: 80%;
+     padding-left: 5%;
+ }
+
+ /* .column {
+    float: right;
+    height: 100vh;
+  
+}*/
+
+ .column-left {
+     width: 70%;
+
+ }
+
+ .scrollable {
+     overflow-y: auto;
+
+ }
+
+ .column-right {
+     width: 70%;
+ }
+
+ /* Clear floats after the columns */
+ /* .row:after {
+    content: "";
+    display: table;
+    clear: both;
+} */
+ @media only screen and (max-width:600px) {
+     .column-right {
+         width: 0%;
+     }
+
+     .column-left {
+         width: 100%;
+     }
+ }

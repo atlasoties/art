@@ -1,0 +1,37 @@
+.header-list {
+    height: 100%;
+    display: flex;
+    background-color: '#2A4365';
+    flex-direction: column;
+    font-size: medium;
+    font-weight: bold;
+    color: black;
+}
+
+.feeds-icon {
+    display: flex;
+    flex-direction: column;
+}
+
+.feed-img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.bg-dark-blue {
+    background-color: rgb(1, 1, 100);
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pointer:hover {
+    z-index: -1;
+    box-shadow: 0 4px 8px 0 black;
+    cursor: pointer;
+}
+
+.U-container {
+    overflow-y: auto !important;
+}

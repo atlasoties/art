@@ -1,43 +1,47 @@
-.chat-first{
+.chat-first {
     display: flex;
     flex-direction: row;
-  
+
 }
-.chat-first-items{
-background-color:white;
-width: 10%;
-height: 100vh;
+
+.chat-first-items {
+    background-color: white;
+    width: 10%;
+    height: 100vh;
 }
-.chat-profile-img{
+
+.chat-profile-img {
 
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    border: 3px solid rgba(21,30,63,255);
+    border: 3px solid rgba(21, 30, 63, 255);
 }
 
-.chat-second-items
-{   
+.chat-second-items {
     width: 100%;
     height: 100vh;
     margin-left: 0%;
-    background-color: rgba(21,30,63,255);
-    overflow-x: hidden;
-    overflow-y: auto;
-} 
-.chat-second-change{
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(21,30,63,255);
+    background-color: rgba(21, 30, 63, 255);
     overflow-x: hidden;
     overflow-y: auto;
 }
-.search-user{
+
+.chat-second-change {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(21, 30, 63, 255);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.search-user {
     margin-left: 2%;
-    width:70%;
+    width: 70%;
     height: 5%;
     border-radius: 10px;
 }
+
 .messages {
     display: flex;
     flex-direction: row;
@@ -61,47 +65,108 @@ height: 100vh;
 
 .user-prof {
     width: 3rem;
-    height:3rem;
+    height: 3rem;
     border-radius: 50%;
     border: 3px solid rgba(21, 30, 63, 255);
 
 }
-.chat-view
-{
-    
+
+.chat-view {
+
     width: 100%;
     height: 100vh;
-    background-image:url('../Asset/img/dark-blue-liquid-stain-pattern-n65b25baujpa1sv0.jpg');
+    background-image: url('../Asset/img/dark-blue-liquid-stain-pattern-n65b25baujpa1sv0.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding-bottom: 0%;
 }
-.chat-view-change{
-  
+
+.chat-view-change {
+
     width: 100%;
     height: 100vh;
-    background-image:url('../Asset/img/dark-blue-liquid-stain-pattern-n65b25baujpa1sv0.jpg');
+    background-image: url('../Asset/img/dark-blue-liquid-stain-pattern-n65b25baujpa1sv0.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
-.arrow-class{
+
+.arrow-class {
     position: absolute;
     top: 0%;
-    visibility:hidden;
+    visibility: hidden;
 }
-.arrow{
+
+.arrow {
     width: 2rem;
     height: 2rem;
 }
+
 @media only screen and (max-width:600px) {
-   .chat-view{
-      width: 0%;
-   }
-   .chat-second-change{
-       visibility: hidden;
-       width: 0%;
-   }
-   .arrow-class{
-       visibility: visible;
-   }
+    .chat-view {
+        width: 0%;
+    }
+
+    .chat-second-change {
+        visibility: hidden;
+        width: 0%;
+    }
+
+    .arrow-class {
+        visibility: visible;
+    }
+}
+
+.chat-room .friend-list .list-group-item {
+    margin-bottom: 0;
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+.chat-room .friend-list .list-group-item:last-of-type {
+    border-bottom: 0;
+}
+
+.chat-room .friend-list .list-group-item.active {
+    background-color: #eeeeee;
+}
+
+.chat-room .avatar {
+    height: 3rem;
+    width: 3rem;
+}
+
+.chat-room .chat-message:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+.chat-room .scrollable-friends-list {
+    height: 570px;
+}
+
+.chat-room .scrollable-chat {
+    height: 510px;
+    padding-bottom: 15px;
+}
+
+body,
+* {
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    overflow: auto;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.tab-container {
+    height: 100vh;
 }

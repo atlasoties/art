@@ -1,33 +1,66 @@
 import "./topbar.css";
 import React from "react";
-import { onlineUsers } from "../../userdata";
-import LoginLogout from "../links/link.component";
+import {
+  MDBBtn,
+  MDBTypography,
+  MDBNavbar,
+  MDBNavbarNav,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBNavbarToggler,
+  MDBContainer,
+  MDBIcon
+} from 'mdb-react-ui-kit';
+import { Link } from "react-router-dom";
 
-class Topbar extends React.Component{
-  // constructor()
-  // {
-  //   super();
-  //   this.state={
-  //     onlineUsers
-  //   }
-  // }
-  render(){
-  return (
-    
-    <div className="topbar">
-      <div className="top-bar-profile">
-      <div><img className="topbar-profile" src={onlineUsers[8].uimg} alt= {onlineUsers[8].name} /></div> 
-      
-      <div className="topbar-profile-name">
-    {onlineUsers[8].name}
-    </div>
-    </div>
-    <div className="topbar-button">
-    <LoginLogout place={'/artupload'} placeName={'Upload art'}/>
-    </div>
-    </div>
+class Topbar extends React.Component {
+  render() {
+    return (<header>
+      <MDBNavbar expand='md' bgColor='white'>
+        <MDBContainer fluid>
+          <MDBNavbarToggler
+            aria-controls='navbarExample01'
+            aria-expanded='false'
+            aria-label='Toggle navigation'
+          >
+            <MDBIcon fas icon='bars' />
+          </MDBNavbarToggler>
+          <div className='collapse navbar-collapse' id='navbarExample01'>
+            <MDBNavbarNav right className='mb-2 mb-lg-0'>
+              <MDBNavbarItem active>
+                <MDBNavbarLink aria-current='page' href='#'>
+                  Home
+                </MDBNavbarLink>
+              </MDBNavbarItem>
 
-  );
-}
+              <MDBNavbarItem>
+                <MDBNavbarLink href='#'>About</MDBNavbarLink>
+              </MDBNavbarItem>
+            </MDBNavbarNav>
+          </div>
+          <form className='d-flex input-group w-auto'>
+            <input type='search' className='form-control' placeholder='Type query' aria-label='Search' />
+            <MDBBtn color='info'>Search</MDBBtn>
+          </form>
+        </MDBContainer>
+      </MDBNavbar>
+
+      <div className='p-5 text-center'>
+        <MDBTypography tag='h1'>Welcome To Your Life</MDBTypography>
+        <MDBTypography tag='h2'>Pan Art will save Your Job, Join US</MDBTypography>
+        <Link to='/login' >
+          <MDBBtn rounded color='primary'>
+            login
+          </MDBBtn>
+        </Link>
+        <Link to='/register'>
+          <MDBBtn rounded color='success'>
+            Register
+          </MDBBtn>
+        </Link>
+      </div>
+    </header>
+    );
+  }
 }
 export default Topbar;
