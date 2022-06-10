@@ -26,7 +26,7 @@ class UserActions{
 							name,
 							email,
 							password:hash(password+process.env.SALT),
-							dob
+							dob:new Date(dob)
 						});
 						user.save();
 						response.json({
@@ -55,8 +55,8 @@ class UserActions{
 					const user = await User.findOne({
 						email:email,
 						password: hash(password+process.env.SALT), 
-					});
-					console.log(user);
+					}).populate('followers','name email avatarImage')
+					.populate('following','name email avatarImage');
 					if(user){
 						const token = await jwt.sign({id:user.id},process.env.SECRET);
 						const {password,updatedAt,createdAt, ...other} = user._doc;
@@ -172,8 +172,8 @@ class UserActions{
 	async unfollowUser(request,response){
 			const id = request.user.id;
 			const paramsId = request.params.id;
-
-				if(id == paramsId){
+			console.log(typeof id)
+				if(id !== paramsId){
 					try{
 						const userToFollow = await User.findById({id});
 						const userToBeFollowed = await User.findById({paramsId});
@@ -195,17 +195,29 @@ class UserActions{
 				}
 			}
 	async searchUser(request,response){
-		const keyword =request.query.search ? {
+		const keyword = request.query.search ? {
 			$or:[
 					{name:{$regex:request.query.search, $options:'i'}},
 					{email:{$regex:request.query.search, $options:'i'}}
 				]
 			}:{};
 
-		const users  = await User.find(keyword).find({_id:{$ne:request.user.id}})
-		response.status(200).json(users);
+		const users  = await User.find({name:request.query.search,followers:request.user.id,following:request.user.id})
+									// .populate('followers')
+									// .populate('following')
+		
+			response.status(200).json(users);
 	}
+async getAllFollowersAndFollowingUsers(request,response) {
 
+		const results= await User.findById({_id:request.user.id})
+							 .populate('followers', 'name email avatarImage')
+							 // .populate('following', 'name email avatarImage').distinct('followers._id')
+							// console.log(...results.followers,results.following)
+			response.status(200).json(results.followers);
+							
+
+}
 
 	async show (request, response){
 		await User.find()

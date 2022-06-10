@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3030;
 const app = express();
 const jwt = require("jwt-then");
 
@@ -48,22 +48,39 @@ const io = require('socket.io')(server ,{
 	}
 });
 
-io.use(async (socket,next)=>{
-	try{
-		const token = socket.handshake.query.token;
-		const payload = await jwt.verify(token, process.env.SECRET);
-		socket.userId = payload.id;
-		next();
-	}catch(err){
-		console.log(err);
-	}
-});
+// io.use(async (socket,next)=>{
+// 	try{
+// 		const token = socket.handshake.query.token;
+// 		const payload = await jwt.verify(token, process.env.SECRET);
+// 		socket.userId = payload.id;
+// 		next();
+// 	}catch(err){
+// 		console.log(err);
+// 	}
+// });
 
 io.on('connection', socket =>{
-	socket.emit('connected',socket.userId);
+	console.log('connected to web socket');
 
-	socket.on('disconnect',()=>{
-		socket.broadcast.emit('callEnded');
+	socket.on('setup',(userdata)=>{
+		socket.join(userdata._id);
+		console.log(userdata._id);
+		socket.emit('connected')
+	});
+
+	socket.on('join chat',(room)=>{
+		socket.join(room);
+		console.log("user joined room"+room);
+	});
+
+
+	socket.on('new message',(newMessageReceived)=>{
+		var chat = newMessageReceived.chat;
+		if(!chat.users) return console.log('chat.users not found')
+		chat.users.forEach(users =>{
+			if(user._id === newMessageReceived.sender._id) return;
+			socket.in(user._id).emit('message received',newMessageReceived)
+		})
 	});
 
 	socket.on('callUser', data =>{

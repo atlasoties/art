@@ -9,10 +9,12 @@ import {
     MDBModalBody,
     MDBModalFooter,
 } from 'mdb-react-ui-kit';
-
-export default function LogOutModal() {
+export default function ProfileModal() {
     const [basicModal, setBasicModal] = useState(false);
-    const logoutHandler = () => localStorage.removeItem('art-user');
+    const logoutHandler = () => {
+        localStorage.removeItem('art-user');
+        window.location.href='/login'
+    }
     const toggleShow = () => setBasicModal(!basicModal);
 
     return (

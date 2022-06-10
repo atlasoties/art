@@ -20,7 +20,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 class App extends React.Component {
   render() {
     return (
-      <Router>
         <Routes>
           <Route exact path='/' element={< Home />}></Route>
           <Route exact path='/login' element={< Login />}></Route>
@@ -39,7 +38,6 @@ class App extends React.Component {
           <Route exact path='/blogload' element={< Blon />}></Route>
           <Route exact path='/profile' element={< Profile />}></Route>
         </Routes>
-      </Router>
     );
   }
 }

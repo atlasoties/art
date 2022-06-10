@@ -31,7 +31,7 @@ class MessageActions{
 
 			response.status(200).json(newMessage)
 		}catch(error){
-			response.status(500).json(error.message);
+			response.json(error.message);
 		}
 	}
 

@@ -8,7 +8,8 @@ const { create,
 		show,
 		getUser,
 		followUser,
-		unfollowUser } = require('../controllers/user.controller')		
+		unfollowUser,
+		getAllFollowersAndFollowingUsers } = require('../controllers/user.controller')		
 const { Authenticate } = require("../middleware/auth.middleware");
 
 
@@ -23,6 +24,7 @@ router.put('/:id/unfollow', Authenticate, unfollowUser);
 router.post('/register', create);
 router.post('/login', login);
 router.delete('/delete/', Authenticate, deletes);
+router.get('/getfriends',Authenticate,getAllFollowersAndFollowingUsers);
 
 
 module.exports = router;

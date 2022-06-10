@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { loginApi } from '../util/APIRoutes';
+import { Button } from '@chakra-ui/core';
 import axios from 'axios';
 import './Login.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -13,7 +13,9 @@ class Login extends React.Component {
 			email: null,
 			password: null
 		}
+		this.onSubmitHandler = this.onSubmitHandler.bind(this)
 	}
+
 	showPasswordHandler(event) {
 		//event.preventDefault();
 		const password = document.querySelector("#pass1");
@@ -29,7 +31,7 @@ class Login extends React.Component {
 		event.preventDefault();
 		try {
 			const { email, password } = this.state;
-			const response = await axios.post(loginApi, {
+			const response = await axios.post('http://localhost:3030/user/login', {
 				email,
 				password,
 			});
@@ -44,7 +46,7 @@ class Login extends React.Component {
 					draggable: true,
 					progress: undefined,
 				});
-				window.location.href = "/feeds";
+				window.location.href = "/chat";
 			} else {
 				toast.error(response.data, {
 					position: "bottom-right",
@@ -82,7 +84,7 @@ class Login extends React.Component {
 						<div>
 							<div className="inputBox">
 								<label htmlFor="email">EMAIL</label>
-								<input type="email" name="email" id="email" onChange={this.handleForm} required />
+								<input type="email" name="email" id="email"  onChange={this.handleForm} required />
 							</div>
 							<div className="inputBox">
 								<label htmlFor="pass1">PASSWORD</label>
@@ -90,11 +92,11 @@ class Login extends React.Component {
 									required />
 							</div>
 							<div>
-								<button onClick={this.onSubmitHandler}>Continue</button>
+								<Button onClick={this.onSubmitHandler}>Continue</Button>
 							</div>
 							<div>
 								<p><Link to="/register">Not Registered?</Link></p>
-								<label clasName="check">Show Password</label>
+								<label className="check">Show Password</label>
 								<input className="check1" type="checkbox" onChange={this.showPasswordHandler} />
 							</div>
 							<ToastContainer />

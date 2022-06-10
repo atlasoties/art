@@ -15,7 +15,6 @@ const userSchema = new mongoose.Schema({
 	},
 	dob:{
 		type:Date,
-		required:"Date of Birth is required"
 	},
 	isAvatarImageSet:{
 		type:Boolean,
@@ -25,14 +24,21 @@ const userSchema = new mongoose.Schema({
 		type:String,
 		default:" "
 	},
-	followers:{
-		type:Array,
-		default:[]
-	},
-	following:{
-		type:Array,
-		default:[]
-	}
+	followers:[
+		{
+				type:mongoose.Schema.Types.ObjectId,
+				required:true,
+				ref:'User'
+			}
+	],
+	following:[
+{
+				type:mongoose.Schema.Types.ObjectId,
+				required:true,
+				ref:'User'
+			}
+	]
+
 },
 {
 	timestamps:true

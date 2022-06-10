@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ChatState from '../../AppState/DataProvider';
 import {
     MDBTabs,
     MDBTabsItem,
@@ -8,14 +9,19 @@ import {
     MDBIcon,
     MDBBadge
 } from 'mdb-react-ui-kit';
+import {Menu,MenuButton,MenuDivider,MenuItem,MenuList,Button,Avatar} from '@chakra-ui/core'
 import UsersList from '../header/UsersList';
 import { Link } from 'react-router-dom'
 import './TabView.css';
 import ChatContainer from '../container/ChatContainer';
-import LogOutModal from '../Modals/LogoutModal';
+import ProfileModal from '../Modals/ProfileModal';
 import Posts from '../../Pages/post/post';
+import Blog from '../../Pages/blog/blog';
 import Conversation from '../conversations/Conversation';
+import { Bl } from '../../blog';
 export default function TabView() {
+    // const {user} = ChatState() 
+    const raw = JSON.parse(localStorage.getItem('art-user'))
     const [Modal, setModal] = useState(false);
     const modalHandler = () => {
         Modal ? setModal(false) : setModal(true);
@@ -29,7 +35,10 @@ export default function TabView() {
 
         setBasicActive(value);
     };
-
+   const logoutHandler = () => {
+        localStorage.removeItem('art-user');
+        window.location.href='/login'
+    }
     return (
         <>
             <div className="fixed">
@@ -46,22 +55,29 @@ export default function TabView() {
                     </MDBTabsItem>
                     <MDBTabsItem className="nav-tabs">
                         <MDBTabsLink onClick={() => handleBasicClick('tab3')} active={basicActive === 'tab3'}>
-                            Tab 3
+                            <MDBIcon fas icon='blog' />Blog
                         </MDBTabsLink>
                     </MDBTabsItem>
-                    <MDBIcon fas icon="sign-in-alt" size='3x' />
-                    <Link to='/notifications'>
-                        <MDBIcon fas icon='bell' size='3x' />
-                        <MDBBadge color='danger' notification pill>
-                            999+
-                        </MDBBadge>
-                    </Link>
-                    {/* <MDBIcon className="icon-color" fas icon="bell" size='3x' /> */}
+         
+                    <Menu>
+                        <MenuButton as={Button} >
+                            <Avatar size='sm' src={raw.other.avatarImage} name={raw.other.name} cursor='pointer'/>
+                        </MenuButton>
+                          <MenuList>
+                                <MenuItem>
+                                <ProfileModal></ProfileModal>
+                                </MenuItem>
+                                <MenuDivider/>
+                                <MenuItem onClick={logoutHandler}>
+                                LogOut
+                                </MenuItem>
+                        </MenuList>
+                    </Menu>
                 </MDBTabs>
                 <MDBTabsContent>
                     <MDBTabsPane show={basicActive === 'tab1'}><Conversation /></MDBTabsPane>
                     <MDBTabsPane show={basicActive === 'tab2'}><Posts /></MDBTabsPane>
-                    <MDBTabsPane show={basicActive === 'tab3'}>Tab 3 content</MDBTabsPane>
+                    <MDBTabsPane show={basicActive === 'tab3'}><Blog /></MDBTabsPane>
                 </MDBTabsContent>
             </div>
         </>

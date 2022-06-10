@@ -6,13 +6,14 @@ const jwt = require("jwt-then");
 
 class ChatActions{
 	async accessChat(request, response){
-		const {userId} = request.body;
-
+		const {lop} = request.body;
+		const friendId = mongoose.Types.ObjectId(JSON.parse(lop));
+		console.log(friendId,request.user.id)
 		let chat = await Chat.find({
 			isGroupChat:false,
 			$and:[
 					{users:{$elemMatch:{$eq:request.user.id}}},
-					{users:{$elemMatch:{$eq:userId}}}
+					{users:{$elemMatch:{$eq:friendId}}}
 				 ],
 		}).populate('users', '-password')
 		  .populate('latestMessage');
@@ -28,7 +29,7 @@ class ChatActions{
 		  		const chatData = {
 		  			chatName:"sender",
 		  			isGroupChat:false,
-		  			users:[request.user.id,userId]
+		  			users:[request.user.id,friendId]
 		  		};
 
 		  		try{
@@ -39,7 +40,7 @@ class ChatActions{
 
 		  			response.status(200).json(FullChat);
 		  		}catch(error){
-		  			response.status(500).json(error.message)
+		  			response.json(error.message)
 		  		}
 		  }
 

@@ -5,6 +5,7 @@ import likePost from '../../Asset/img/like.png';
 import lovePost from '../../Asset/img/heart.png';
 import { onlineUsers } from '../../userdata';
 import { MDBIcon, MDBBtn, MDBPopoverBody } from 'mdb-react-ui-kit';
+import { Box, Avatar } from "@chakra-ui/core"
 import { Po } from '../../posts';
 import Sidebar from '../../Components/sidebar/sidebar';
 import Online from '../../Components/online/Online';
@@ -65,6 +66,7 @@ class Posts extends React.Component {
     }
     render() {
         return (
+
             <div className="post">
                 <div className="add-com">
                     <MDBBtn className='mx-2' tag='a' color='primary' outline floating>
@@ -73,10 +75,10 @@ class Posts extends React.Component {
                 </div>
                 <div className="post-per">
                     {this.state.a3.map(now =>
-                        <>
+                        <> <div id="feed-container">
                             <div className='posters-elements' >
                                 <div className='post-info'>
-                                    <img className='post-user-profile' src={now.uimg} alt={now.name} />
+                                    <Avatar name={now.name} src={now.uimg} />
 
                                     <div className='post-user-name' >{now.name}</div>
                                 </div>
@@ -101,10 +103,12 @@ class Posts extends React.Component {
                             <div className={this.state.className}>
                                 <textarea className={this.state.classt}></textarea>
                                 <button className='btn-cmt' onClick={this.commentSubmitController} >Comment</button>
-                            </div></>
+                            </div>
+                        </div></>
                     )}
                 </div>
             </div>
+
 
         );
     }
